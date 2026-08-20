@@ -19,7 +19,7 @@ export default function SideUnik() {
             <div className='pointer-events-none absolute bottom-0 right-0 z-10 h-32 w-72 rounded-tl-[2.5rem] bg-background sm:h-36 sm:w-80' />
           </div>
           <div className='mx-auto w-full max-w-2xl lg:mx-0'>
-            <h2 className='bg-gradient-to-br dark:from-white from-black from-30% dark:to-white/40 to-black/40 bg-clip-text py-2 text-4xl font-medium leading-[0.95] tracking-tighter text-transparent text-balance animate-fade-in opacity-0 [--animation-delay:200ms] sm:text-5xl md:text-6xl lg:text-6xl'>
+            <h2 className='bg-gradient-to-br dark:from-white from-black from-30% dark:to-white/40 to-black/40 bg-clip-text py-2 text-4xl font-medium leading-[0.95] tracking-tighter text-transparent text-balance sm:text-5xl md:text-6xl lg:text-6xl'>
               We clarify, structure, and then build. Cognition is the new
               currency, AI enhances it, and systems apply it.
             </h2>
