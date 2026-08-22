@@ -11,24 +11,14 @@ const fontSans = FontSans({
   variable: '--font-sans',
 });
 export const metadata: Metadata = {
-  title: 'Kognifx - Cognition, Engineered.',
-  description:
-    'Kognifx helps organizations solve complex operational and decision problems by turning fragmented thinking into structured, working systems accelerated by AI.',
-  keywords: [
-    'Kognifx',
-    'cognitive systems',
-    'operational systems',
-    'procurement optimization',
-    'workflow automation',
-    'decision support tools',
-    'AI for operations',
-    'structured problem solving',
-    'B2B AI solutions',
-    'cognition engineered',
-  ],
   metadataBase: new URL(siteUrl),
+  title: {
+    default: seoDefaults.title,
+    template: '%s | Kognifx',
+  },
+  description: seoDefaults.description,
   alternates: {
-    canonical: siteUrl,
+    canonical: `${siteUrl}/`,
   },
   robots: {
     index: true,
@@ -48,28 +38,27 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: siteUrl,
-    title: 'Kognifx - Cognition, Engineered.',
+    url: `${siteUrl}/`,
+    title: seoDefaults.title,
     description:
       'Kognifx turns complexity into clarity and clarity into working systems.',
     siteName: seoDefaults.siteName,
     locale: seoDefaults.locale,
     images: [
       {
-        url: new URL('/showgoogle.png', siteUrl).toString(),
-        width: 512,
-        height: 512,
+        url: '/showgoogle.png',
+        width: 3310,
+        height: 1908,
         alt: 'Kognifx brand preview',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kognifx - Cognition, Engineered.',
+    title: seoDefaults.title,
     description:
       'Kognifx helps organizations structure complexity into scalable working systems with AI.',
-    images: [new URL('/showgoogle.png', siteUrl).toString()],
-    site: seoDefaults.siteName,
+    images: ['/showgoogle.png'],
   },
 };
 
