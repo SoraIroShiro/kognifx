@@ -1,6 +1,6 @@
 'use client';
 
-import { useInView } from 'framer-motion';
+import { scheduleAfterLoadAndIdle, shouldEnableHeavy3D } from '@/lib/spline-scheduling';
 import {
   Component,
   type ComponentType,
@@ -21,7 +21,7 @@ type InViewMargin =
 interface SplineFrameProps {
   scene: string;
   lazy?: boolean;
-  /** Delay mounting Spline so main HTML/CSS content can paint first. */
+  /** Minimum delay after window load before mount/import, then idle scheduling. */
   deferMs?: number;
   className?: string;
   inViewAmount?: number;
@@ -73,6 +73,43 @@ function isSplineRelatedFailure(reason: unknown) {
   );
 }
 
+function useLazyInView(
+  ref: React.RefObject<HTMLDivElement | null>,
+  enabled: boolean,
+  amount: number,
+  margin: InViewMargin
+) {
+  const [isInView, setIsInView] = useState(!enabled);
+
+  useEffect(() => {
+    if (!enabled) {
+      setIsInView(true);
+      return;
+    }
+
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: amount,
+        rootMargin: margin,
+      }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [enabled, amount, margin, ref]);
+
+  return isInView;
+}
+
 export function SplineFrame({
   scene,
   lazy = false,
@@ -82,55 +119,31 @@ export function SplineFrame({
   inViewMargin = '200px 0px',
 }: SplineFrameProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, {
-    once: true,
-    amount: inViewAmount,
-    margin: inViewMargin,
-  });
+  const isInView = useLazyInView(ref, lazy, inViewAmount, inViewMargin);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasFailed, setHasFailed] = useState(false);
+  const [isSkipped, setIsSkipped] = useState(false);
   const [canMount, setCanMount] = useState(false);
   const [Viewer, setViewer] = useState<SplineViewerComponent | null>(null);
 
   const inViewReady = !lazy || isInView;
 
   useEffect(() => {
-    if (!inViewReady || hasFailed) return;
-
-    let idleId: number | undefined;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    let cancelled = false;
-
-    const enable = () => {
-      if (!cancelled) setCanMount(true);
-    };
-
-    // Enforce a hard minimum delay before mount/import, then prefer idle time.
-    timeoutId = setTimeout(() => {
-      if (cancelled) return;
-
-      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-        idleId = window.requestIdleCallback(enable);
-      } else {
-        enable();
-      }
-    }, Math.max(deferMs, 0));
-
-    return () => {
-      cancelled = true;
-      if (
-        idleId !== undefined &&
-        typeof window !== 'undefined' &&
-        'cancelIdleCallback' in window
-      ) {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [inViewReady, deferMs, hasFailed]);
+    if (!shouldEnableHeavy3D()) {
+      setIsSkipped(true);
+    }
+  }, []);
 
   useEffect(() => {
-    if (!canMount || hasFailed || Viewer) return;
+    if (!inViewReady || hasFailed || isSkipped) return;
+
+    return scheduleAfterLoadAndIdle(deferMs, () => {
+      setCanMount(true);
+    });
+  }, [inViewReady, deferMs, hasFailed, isSkipped]);
+
+  useEffect(() => {
+    if (!canMount || hasFailed || isSkipped || Viewer) return;
 
     let cancelled = false;
 
@@ -145,10 +158,10 @@ export function SplineFrame({
     return () => {
       cancelled = true;
     };
-  }, [canMount, hasFailed, Viewer]);
+  }, [canMount, hasFailed, isSkipped, Viewer]);
 
   useEffect(() => {
-    if (!canMount || hasFailed) return;
+    if (!canMount || hasFailed || isSkipped) return;
 
     const markFailed = () => setHasFailed(true);
 
@@ -175,10 +188,11 @@ export function SplineFrame({
       window.removeEventListener('unhandledrejection', onRejection);
       window.removeEventListener('error', onError);
     };
-  }, [canMount, hasFailed]);
+  }, [canMount, hasFailed, isSkipped]);
 
-  const shouldRender = canMount && inViewReady && !hasFailed && Viewer;
-  const showPlaceholder = !isLoaded || hasFailed;
+  const shouldRender =
+    canMount && inViewReady && !hasFailed && !isSkipped && Viewer;
+  const showPlaceholder = !isLoaded || hasFailed || isSkipped;
 
   return (
     <div
