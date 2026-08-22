@@ -15,8 +15,8 @@ export default function HeroSection() {
         <div className='absolute inset-x-0 top-0 h-full overflow-hidden [mask-image:linear-gradient(to_bottom,black_0%,black_42%,transparent_72%)]'>
           <div className='h-full w-full scale-[1.02] translate-y-[-1rem] sm:scale-[1.04] sm:translate-y-[-1.5rem] md:scale-[1.08] md:translate-y-[-2.5rem]'>
             <SplineFrame
+              variant='hero'
               scene='https://prod.spline.design/GnVCcsZDFwuyvsaX/scene.splinecode'
-              deferMs={1200}
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
-import { scheduleAfterLoadAndIdle, shouldEnableHeavy3D } from '@/lib/spline-scheduling';
+import { useSplineActivation } from '@/lib/spline-activation';
+import { afterNextPaint, shouldEnableHeavy3D } from '@/lib/spline-scheduling';
 import {
   Component,
   type ComponentType,
@@ -20,10 +21,9 @@ type InViewMargin =
 
 interface SplineFrameProps {
   scene: string;
-  lazy?: boolean;
-  /** Minimum delay after window load before mount/import, then idle scheduling. */
-  deferMs?: number;
   className?: string;
+  /** Hero requires explicit user activation; side loads after activation + in-view. */
+  variant?: 'hero' | 'side';
   inViewAmount?: number;
   inViewMargin?: InViewMargin;
 }
@@ -32,6 +32,8 @@ type SplineViewerComponent = ComponentType<{
   scene: string;
   onLoad?: () => void;
 }>;
+
+type HeroPhase = 'idle' | 'loading' | 'ready';
 
 class SplineErrorBoundary extends Component<
   { children: ReactNode; onError: () => void },
@@ -55,10 +57,33 @@ class SplineErrorBoundary extends Component<
 
 function Placeholder() {
   return (
-    <>
-      <div className='absolute inset-0 bg-[radial-gradient(circle_at_28%_28%,rgba(255,130,92,0.18),transparent_28%),radial-gradient(circle_at_72%_38%,rgba(118,225,255,0.14),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_45%)]' />
-      <div className='absolute inset-0 animate-pulse bg-background/70' />
-    </>
+    <div className='absolute inset-0 bg-[radial-gradient(circle_at_28%_28%,rgba(255,130,92,0.18),transparent_28%),radial-gradient(circle_at_72%_38%,rgba(118,225,255,0.14),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_45%)]' />
+  );
+}
+
+function SplineActivationButton({ onActivate }: { onActivate: () => void }) {
+  return (
+    <button
+      type='button'
+      onClick={onActivate}
+      aria-label='Explore interactive 3D experience'
+      className='pointer-events-auto absolute inset-0 z-10 m-auto h-fit w-fit rounded-full border border-white/10 bg-background/60 px-5 py-2.5 text-sm font-medium tracking-tight text-foreground/90 backdrop-blur-sm transition-colors hover:bg-background/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+    >
+      Explore Interactive 3D
+    </button>
+  );
+}
+
+function SplineLoadingStatus() {
+  return (
+    <div
+      role='status'
+      aria-live='polite'
+      aria-busy='true'
+      className='pointer-events-none absolute inset-0 z-10 m-auto flex h-fit w-fit items-center justify-center rounded-full border border-white/10 bg-background/60 px-5 py-2.5 text-sm font-medium tracking-tight text-foreground/90 backdrop-blur-sm'
+    >
+      Loading interactive 3D…
+    </div>
   );
 }
 
@@ -79,11 +104,11 @@ function useLazyInView(
   amount: number,
   margin: InViewMargin
 ) {
-  const [isInView, setIsInView] = useState(!enabled);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     if (!enabled) {
-      setIsInView(true);
+      setIsInView(false);
       return;
     }
 
@@ -110,40 +135,13 @@ function useLazyInView(
   return isInView;
 }
 
-export function SplineFrame({
-  scene,
-  lazy = false,
-  deferMs = 600,
-  className = '',
-  inViewAmount = 0.15,
-  inViewMargin = '200px 0px',
-}: SplineFrameProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useLazyInView(ref, lazy, inViewAmount, inViewMargin);
+function useSplineRuntime(shouldLoad: boolean) {
+  const [Viewer, setViewer] = useState<SplineViewerComponent | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasFailed, setHasFailed] = useState(false);
-  const [isSkipped, setIsSkipped] = useState(false);
-  const [canMount, setCanMount] = useState(false);
-  const [Viewer, setViewer] = useState<SplineViewerComponent | null>(null);
-
-  const inViewReady = !lazy || isInView;
 
   useEffect(() => {
-    if (!shouldEnableHeavy3D()) {
-      setIsSkipped(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!inViewReady || hasFailed || isSkipped) return;
-
-    return scheduleAfterLoadAndIdle(deferMs, () => {
-      setCanMount(true);
-    });
-  }, [inViewReady, deferMs, hasFailed, isSkipped]);
-
-  useEffect(() => {
-    if (!canMount || hasFailed || isSkipped || Viewer) return;
+    if (!shouldLoad || hasFailed || Viewer) return;
 
     let cancelled = false;
 
@@ -158,10 +156,10 @@ export function SplineFrame({
     return () => {
       cancelled = true;
     };
-  }, [canMount, hasFailed, isSkipped, Viewer]);
+  }, [shouldLoad, hasFailed, Viewer]);
 
   useEffect(() => {
-    if (!canMount || hasFailed || isSkipped) return;
+    if (!shouldLoad || hasFailed) return;
 
     const markFailed = () => setHasFailed(true);
 
@@ -188,11 +186,126 @@ export function SplineFrame({
       window.removeEventListener('unhandledrejection', onRejection);
       window.removeEventListener('error', onError);
     };
-  }, [canMount, hasFailed, isSkipped]);
+  }, [shouldLoad, hasFailed]);
 
-  const shouldRender =
-    canMount && inViewReady && !hasFailed && !isSkipped && Viewer;
-  const showPlaceholder = !isLoaded || hasFailed || isSkipped;
+  return { Viewer, isLoaded, hasFailed, setIsLoaded, setHasFailed };
+}
+
+function SplineFrameHero({
+  scene,
+  className = '',
+}: {
+  scene: string;
+  className?: string;
+}) {
+  const { activate } = useSplineActivation();
+  const [canOffer3D, setCanOffer3D] = useState(false);
+  const [phase, setPhase] = useState<HeroPhase>('idle');
+  const [canImport, setCanImport] = useState(false);
+
+  useEffect(() => {
+    setCanOffer3D(shouldEnableHeavy3D());
+  }, []);
+
+  // Stage 2: only after loading UI has painted, allow heavy import.
+  useEffect(() => {
+    if (phase !== 'loading' || canImport) return;
+
+    let cancelled = false;
+
+    afterNextPaint().then(() => {
+      if (!cancelled) setCanImport(true);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [phase, canImport]);
+
+  const shouldLoad = canImport && canOffer3D;
+  const { Viewer, isLoaded, hasFailed, setIsLoaded, setHasFailed } =
+    useSplineRuntime(shouldLoad);
+
+  useEffect(() => {
+    if (isLoaded && phase === 'loading') {
+      setPhase('ready');
+    }
+  }, [isLoaded, phase]);
+
+  const showActivation = canOffer3D && phase === 'idle' && !hasFailed;
+  const showLoading =
+    (phase === 'loading' || phase === 'ready') && !hasFailed && !isLoaded;
+  const shouldRender = shouldLoad && !hasFailed && Viewer;
+  const showPlaceholder = !isLoaded || hasFailed || !shouldLoad;
+
+  // Lightweight click: UI + context only. No import, no sync heavy work.
+  const handleActivate = () => {
+    if (phase !== 'idle') return;
+    activate();
+    setPhase('loading');
+  };
+
+  return (
+    <div className={`relative h-full w-full overflow-hidden ${className}`}>
+      <div
+        className={`absolute inset-0 transition-opacity duration-500 ${
+          showPlaceholder ? 'opacity-100' : 'opacity-0'
+        }`}
+        aria-hidden='true'
+      >
+        <Placeholder />
+      </div>
+
+      {showActivation ? (
+        <SplineActivationButton onActivate={handleActivate} />
+      ) : null}
+
+      {showLoading ? <SplineLoadingStatus /> : null}
+
+      {shouldRender && Viewer ? (
+        <div
+          className={`absolute inset-0 transition-opacity duration-700 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          aria-hidden='true'
+        >
+          <SplineErrorBoundary onError={() => setHasFailed(true)}>
+            <Viewer scene={scene} onLoad={() => setIsLoaded(true)} />
+          </SplineErrorBoundary>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function SplineFrameSide({
+  scene,
+  className = '',
+  inViewAmount = 0.35,
+  inViewMargin = '120px 0px',
+}: {
+  scene: string;
+  className?: string;
+  inViewAmount?: number;
+  inViewMargin?: InViewMargin;
+}) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { isActivated } = useSplineActivation();
+  const [canOffer3D, setCanOffer3D] = useState(false);
+
+  useEffect(() => {
+    setCanOffer3D(shouldEnableHeavy3D());
+  }, []);
+
+  const shouldObserve = isActivated && canOffer3D;
+  const isInView = useLazyInView(ref, shouldObserve, inViewAmount, inViewMargin);
+  const shouldLoad = shouldObserve && isInView;
+
+  const { Viewer, isLoaded, hasFailed, setIsLoaded, setHasFailed } =
+    useSplineRuntime(shouldLoad);
+
+  const shouldRender = shouldLoad && !hasFailed && Viewer;
+  const showPlaceholder = !isLoaded || hasFailed || !shouldLoad;
 
   return (
     <div
@@ -221,4 +334,25 @@ export function SplineFrame({
       ) : null}
     </div>
   );
+}
+
+export function SplineFrame({
+  variant = 'hero',
+  scene,
+  className,
+  inViewAmount,
+  inViewMargin,
+}: SplineFrameProps) {
+  if (variant === 'side') {
+    return (
+      <SplineFrameSide
+        scene={scene}
+        className={className}
+        inViewAmount={inViewAmount}
+        inViewMargin={inViewMargin}
+      />
+    );
+  }
+
+  return <SplineFrameHero scene={scene} className={className} />;
 }

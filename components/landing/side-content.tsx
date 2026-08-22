@@ -9,8 +9,8 @@ export default function SideUnik() {
             <div className='h-[24rem] w-full overflow-hidden sm:h-[28rem] lg:h-[30rem]'>
               <div className='h-full w-full'>
                 <SplineFrame
+                  variant='side'
                   scene='https://prod.spline.design/S9N9kEGI69dOpgLf/scene.splinecode'
-                  lazy
                   inViewAmount={0.35}
                   inViewMargin='120px 0px'
                 />

@@ -22,6 +22,19 @@ export function shouldEnableHeavy3D(): boolean {
   return true;
 }
 
+/**
+ * Resolves after the browser has painted the current frame.
+ * Double rAF yields past style/layout/paint so INP handlers can
+ * update UI before heavy work begins.
+ */
+export function afterNextPaint(): Promise<void> {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => resolve());
+    });
+  });
+}
+
 function hasWebGL(): boolean {
   try {
     const canvas = document.createElement('canvas');
@@ -31,72 +44,4 @@ function hasWebGL(): boolean {
   } catch {
     return false;
   }
-}
-
-/**
- * Schedule heavy 3D work after document load, a minimum defer, and idle time.
- */
-export function scheduleAfterLoadAndIdle(
-  deferMs: number,
-  callback: () => void
-): () => void {
-  let cancelled = false;
-  let idleId: number | undefined;
-  let timeoutId: ReturnType<typeof setTimeout> | undefined;
-
-  const runWhenIdle = () => {
-    if (cancelled || document.visibilityState !== 'visible') return;
-
-    if ('requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(
-        () => {
-          if (!cancelled && document.visibilityState === 'visible') {
-            callback();
-          }
-        },
-        { timeout: 2000 }
-      );
-    } else {
-      callback();
-    }
-  };
-
-  const startDefer = () => {
-    if (cancelled) return;
-
-    timeoutId = setTimeout(() => {
-      if (cancelled) return;
-
-      if (document.visibilityState !== 'visible') {
-        const onVisible = () => {
-          if (document.visibilityState === 'visible') {
-            document.removeEventListener('visibilitychange', onVisible);
-            runWhenIdle();
-          }
-        };
-        document.addEventListener('visibilitychange', onVisible);
-        return;
-      }
-
-      runWhenIdle();
-    }, Math.max(deferMs, 0));
-  };
-
-  if (document.readyState === 'complete') {
-    startDefer();
-  } else {
-    window.addEventListener('load', startDefer, { once: true });
-  }
-
-  return () => {
-    cancelled = true;
-    if (
-      idleId !== undefined &&
-      typeof window !== 'undefined' &&
-      'cancelIdleCallback' in window
-    ) {
-      window.cancelIdleCallback(idleId);
-    }
-    if (timeoutId) clearTimeout(timeoutId);
-  };
 }

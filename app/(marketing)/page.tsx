@@ -2,6 +2,7 @@ import HeroSection from '@/components/landing/hero-section';
 import { Testimoni } from '@/components/landing/marque-cs';
 import FAQPage from '@/components/landing/sesi-faq';
 import SideUnik from '@/components/landing/side-content';
+import { SplineActivationProvider } from '@/lib/spline-activation';
 import { HomepageJsonLd } from '@/components/structured-data/homepage-json-ld';
 import dynamic from 'next/dynamic';
 
@@ -11,7 +12,7 @@ const Particles = dynamic(() => import('@/components/magicui/particles'), {
 
 export default async function Page() {
   return (
-    <>
+    <SplineActivationProvider>
       <HomepageJsonLd />
       <HeroSection />
       <SideUnik />
@@ -25,6 +26,6 @@ export default async function Page() {
         color={'#ffffff'}
       />
       <FAQPage />
-    </>
+    </SplineActivationProvider>
   );
 }
