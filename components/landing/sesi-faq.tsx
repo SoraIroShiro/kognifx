@@ -1,33 +1,11 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import { FAQSection } from '@/components/faq-session';
-import { Mail } from 'lucide-react';
+import { homepageFaqItems } from '@/lib/homepage-faq';
 
 export default function FAQPage() {
-  const faqItems = [
-    {
-      id: '1',
-      question: 'What is Kognifx?',
-      answer:
-        'Kognifx is a cognitive build collective that helps organizations convert complexity into structured, working systems.',
-    },
-    {
-      id: '2',
-      question: 'What problems does Kognifx solve?',
-      answer:
-        'We solve unclear problem structures, inconsistent decisions, and execution bottlenecks that prevent ideas from becoming scalable solutions.',
-    },
-    {
-      id: '3',
-      question: 'Where does Kognifx add value?',
-      answer:
-        'We add value in operational systems, procurement optimization, workflow automation, and decision-support tools.',
-    },
-  ];
-
   return (
-    <main className='mx-auto w-full max-w-screen-xl bg-background'>
+    <section className='mx-auto w-full max-w-screen-xl bg-background'>
       <div className='container mx-auto px-4 py-16'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16'>
           <div className='flex flex-col justify-start'>
@@ -40,10 +18,10 @@ export default function FAQPage() {
             </p>
           </div>
           <div>
-            <FAQSection items={faqItems} />
+            <FAQSection items={homepageFaqItems} />
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }
