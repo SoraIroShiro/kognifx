@@ -6,10 +6,12 @@ import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { seoDefaults, siteUrl } from '@/lib/seo';
+
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 });
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -17,9 +19,6 @@ export const metadata: Metadata = {
     template: '%s | Kognifx',
   },
   description: seoDefaults.description,
-  alternates: {
-    canonical: `${siteUrl}/`,
-  },
   robots: {
     index: true,
     follow: true,
@@ -38,7 +37,6 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: `${siteUrl}/`,
     title: seoDefaults.title,
     description: seoDefaults.description,
     siteName: seoDefaults.siteName,

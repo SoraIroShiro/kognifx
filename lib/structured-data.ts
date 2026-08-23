@@ -1,7 +1,9 @@
+import { absoluteUrl } from '@/lib/absolute-url';
+import type { MarketingRoute } from '@/lib/language-routes';
 import { seoDefaults, siteUrl } from '@/lib/seo';
 
-const organizationId = `${siteUrl}/#organization`;
-const websiteId = `${siteUrl}/#website`;
+export const organizationId = `${siteUrl}/#organization`;
+export const websiteId = `${siteUrl}/#website`;
 
 export function getHomepageStructuredData() {
   return {
@@ -24,5 +26,39 @@ export function getHomepageStructuredData() {
         },
       },
     ],
+  };
+}
+
+type PageStructuredDataInput = {
+  path: MarketingRoute;
+  type: 'AboutPage' | 'CollectionPage' | 'ContactPage' | 'WebPage';
+  name: string;
+  description: string;
+  inLanguage: 'en' | 'id-ID';
+};
+
+export function getPageStructuredData({
+  path,
+  type,
+  name,
+  description,
+  inLanguage,
+}: PageStructuredDataInput) {
+  const pageUrl = absoluteUrl(path);
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': type,
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name,
+    description,
+    inLanguage,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': organizationId,
+    },
   };
 }

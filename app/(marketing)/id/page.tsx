@@ -1,12 +1,31 @@
+import { IndonesianHomepageContent } from '@/components/landing/indonesian-homepage-content';
+import { JsonLd } from '@/components/structured-data/json-ld';
+import { createMarketingMetadata } from '@/lib/page-metadata';
+import { getPageStructuredData } from '@/lib/structured-data';
+
+const title = 'Kognifx — Software House & Solusi AI untuk Bisnis';
+const description =
+  'Kognifx membantu bisnis membangun software custom, sistem enterprise, AI agent, automation, dan IoT untuk menyelesaikan kebutuhan operasional hingga masalah bisnis yang kompleks.';
+
+export const metadata = createMarketingMetadata({
+  path: '/id',
+  title,
+  description,
+});
+
 export default function IndonesianHomePage() {
   return (
-    <section className='mx-auto w-full max-w-screen-xl px-6 py-24 md:px-8 lg:py-28'>
-      <h1 className='text-4xl font-medium tracking-tight sm:text-5xl'>
-        Kognifx Indonesia
-      </h1>
-      <p className='mt-4 max-w-2xl text-muted-foreground'>
-        Konten lengkap untuk halaman ini akan segera ditambahkan.
-      </p>
-    </section>
+    <>
+      <JsonLd
+        data={getPageStructuredData({
+          path: '/id',
+          type: 'WebPage',
+          name: title,
+          description,
+          inLanguage: 'id-ID',
+        })}
+      />
+      <IndonesianHomepageContent />
+    </>
   );
 }

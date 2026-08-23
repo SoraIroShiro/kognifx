@@ -1,27 +1,16 @@
 import type { MetadataRoute } from 'next';
-import { siteUrl } from '@/lib/seo';
+import { languageRoutePairs } from '@/lib/language-routes';
+import { absoluteUrl } from '@/lib/absolute-url';
 
 /**
- * Public, indexable routes only.
- * Add a path here when a real public page ships — do not invent URLs.
+ * Public, indexable Phase 1 marketing routes.
  * lastModified is omitted until a reliable content-change timestamp exists.
+ * Page-level hreflang remains authoritative for language relationships.
  */
-const publicRoutes: Array<{
-  path: string;
-  changeFrequency: NonNullable<MetadataRoute.Sitemap[number]['changeFrequency']>;
-  priority: number;
-}> = [
-  {
-    path: '/',
-    changeFrequency: 'weekly',
-    priority: 1,
-  },
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  return publicRoutes.map(({ path, changeFrequency, priority }) => ({
-    url: path === '/' ? `${siteUrl}/` : `${siteUrl}${path}`,
-    changeFrequency,
-    priority,
+  const paths = languageRoutePairs.flatMap((pair) => [pair.en, pair.id]);
+
+  return paths.map((path) => ({
+    url: absoluteUrl(path),
   }));
 }

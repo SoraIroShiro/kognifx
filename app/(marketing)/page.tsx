@@ -3,12 +3,20 @@ import { HomepageSeoSections } from '@/components/landing/homepage-seo-sections'
 import { Testimoni } from '@/components/landing/marque-cs';
 import FAQPage from '@/components/landing/sesi-faq';
 import SideUnik from '@/components/landing/side-content';
-import { SplineActivationProvider } from '@/lib/spline-activation';
 import { HomepageJsonLd } from '@/components/structured-data/homepage-json-ld';
+import { SplineActivationProvider } from '@/lib/spline-activation';
+import { createMarketingMetadata } from '@/lib/page-metadata';
+import { seoDefaults } from '@/lib/seo';
 import dynamic from 'next/dynamic';
 
 const Particles = dynamic(() => import('@/components/magicui/particles'), {
   ssr: false,
+});
+
+export const metadata = createMarketingMetadata({
+  path: '/',
+  title: seoDefaults.title,
+  description: seoDefaults.description,
 });
 
 export default async function Page() {

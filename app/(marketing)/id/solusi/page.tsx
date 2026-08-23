@@ -2,18 +2,22 @@ import {
   MarketingPageIntro,
   MarketingPageShell,
 } from '@/components/marketing/marketing-page-shell';
+import { JsonLd } from '@/components/structured-data/json-ld';
 import { buttonVariants } from '@/components/ui/button';
+import { createMarketingMetadata } from '@/lib/page-metadata';
+import { getPageStructuredData } from '@/lib/structured-data';
 import { cn } from '@/lib/utils';
-import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Solusi Software Custom, AI & Sistem Bisnis | Kognifx',
-  },
-  description:
-    'Temukan solusi Kognifx untuk software custom, ERP, sistem perusahaan, AI automation, e-commerce, platform digital, IoT, dan integrasi sistem.',
-};
+const title = 'Solusi Software Custom, AI & Sistem Bisnis | Kognifx';
+const description =
+  'Temukan solusi Kognifx untuk software custom, ERP, sistem perusahaan, AI automation, e-commerce, platform digital, IoT, dan integrasi sistem.';
+
+export const metadata = createMarketingMetadata({
+  path: '/id/solusi',
+  title,
+  description,
+});
 
 type SolutionGroup = {
   title: string;
@@ -119,6 +123,15 @@ const solutionGroups: SolutionGroup[] = [
 export default function SolusiPage() {
   return (
     <MarketingPageShell>
+      <JsonLd
+        data={getPageStructuredData({
+          path: '/id/solusi',
+          type: 'CollectionPage',
+          name: title,
+          description,
+          inLanguage: 'id-ID',
+        })}
+      />
       <h1 className='max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl'>
         Solusi Teknologi yang Dibangun Sesuai Kebutuhan Bisnis.
       </h1>

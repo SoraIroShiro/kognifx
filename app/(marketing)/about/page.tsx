@@ -3,18 +3,22 @@ import {
   MarketingPageShell,
   MarketingSection,
 } from '@/components/marketing/marketing-page-shell';
+import { JsonLd } from '@/components/structured-data/json-ld';
 import { buttonVariants } from '@/components/ui/button';
+import { createMarketingMetadata } from '@/lib/page-metadata';
+import { getPageStructuredData } from '@/lib/structured-data';
 import { cn } from '@/lib/utils';
-import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'About Kognifx — Software, AI & Systems Engineering',
-  },
-  description:
-    'Learn how Kognifx combines software engineering, AI, automation, and systems thinking to turn business problems into practical working systems.',
-};
+const title = 'About Kognifx — Software, AI & Systems Engineering';
+const description =
+  'Learn how Kognifx combines software engineering, AI, automation, and systems thinking to turn business problems into practical working systems.';
+
+export const metadata = createMarketingMetadata({
+  path: '/about',
+  title,
+  description,
+});
 
 const processSteps = [
   {
@@ -52,6 +56,15 @@ const processSteps = [
 export default function AboutPage() {
   return (
     <MarketingPageShell>
+      <JsonLd
+        data={getPageStructuredData({
+          path: '/about',
+          type: 'AboutPage',
+          name: title,
+          description,
+          inLanguage: 'en',
+        })}
+      />
       <h1 className='text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl'>
         About Kognifx
       </h1>

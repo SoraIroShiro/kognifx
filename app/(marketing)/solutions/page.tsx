@@ -2,18 +2,22 @@ import {
   MarketingPageIntro,
   MarketingPageShell,
 } from '@/components/marketing/marketing-page-shell';
+import { JsonLd } from '@/components/structured-data/json-ld';
 import { buttonVariants } from '@/components/ui/button';
+import { createMarketingMetadata } from '@/lib/page-metadata';
+import { getPageStructuredData } from '@/lib/structured-data';
 import { cn } from '@/lib/utils';
-import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Software, AI & Technology Solutions | Kognifx',
-  },
-  description:
-    'Explore Kognifx solutions across custom software, enterprise systems, AI automation, digital commerce, platforms, IoT, and systems integration.',
-};
+const title = 'Software, AI & Technology Solutions | Kognifx';
+const description =
+  'Explore Kognifx solutions across custom software, enterprise systems, AI automation, digital commerce, platforms, IoT, and systems integration.';
+
+export const metadata = createMarketingMetadata({
+  path: '/solutions',
+  title,
+  description,
+});
 
 type SolutionGroup = {
   title: string;
@@ -119,6 +123,15 @@ const solutionGroups: SolutionGroup[] = [
 export default function SolutionsPage() {
   return (
     <MarketingPageShell>
+      <JsonLd
+        data={getPageStructuredData({
+          path: '/solutions',
+          type: 'CollectionPage',
+          name: title,
+          description,
+          inLanguage: 'en',
+        })}
+      />
       <h1 className='max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl'>
         Technology Built Around Your Business.
       </h1>

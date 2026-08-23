@@ -3,19 +3,32 @@ import {
   MarketingPageIntro,
   MarketingPageShell,
 } from '@/components/marketing/marketing-page-shell';
-import type { Metadata } from 'next';
+import { JsonLd } from '@/components/structured-data/json-ld';
+import { createMarketingMetadata } from '@/lib/page-metadata';
+import { getPageStructuredData } from '@/lib/structured-data';
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Hubungi Kognifx — Konsultasikan Proyek Software atau AI',
-  },
-  description:
-    'Ceritakan masalah bisnis, kebutuhan software, ide automation, atau proyek teknologi Anda kepada Kognifx untuk merancang solusi yang tepat bersama.',
-};
+const title = 'Hubungi Kognifx — Konsultasikan Proyek Software atau AI';
+const description =
+  'Ceritakan masalah bisnis, kebutuhan software, ide automation, atau proyek teknologi Anda kepada Kognifx untuk merancang solusi yang tepat bersama.';
+
+export const metadata = createMarketingMetadata({
+  path: '/id/kontak',
+  title,
+  description,
+});
 
 export default function KontakPage() {
   return (
     <MarketingPageShell>
+      <JsonLd
+        data={getPageStructuredData({
+          path: '/id/kontak',
+          type: 'ContactPage',
+          name: title,
+          description,
+          inLanguage: 'id-ID',
+        })}
+      />
       <h1 className='max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl'>
         Ceritakan Masalah yang Ingin Anda Selesaikan.
       </h1>
