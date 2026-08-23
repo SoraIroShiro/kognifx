@@ -128,7 +128,12 @@ function useSplineRuntime(shouldLoad: boolean) {
   const [hasFailed, setHasFailed] = useState(false);
 
   useEffect(() => {
-    if (!shouldLoad || hasFailed || Viewer) return;
+    if (!shouldLoad) {
+      setIsLoaded(false);
+      return;
+    }
+
+    if (hasFailed || Viewer) return;
 
     let cancelled = false;
 
@@ -194,9 +199,15 @@ function SplineFrameHero({
     setCanOffer3D(shouldEnableHeavy3D());
   }, []);
 
-  // Header (or any) activate() flips context — start loading UI only after that.
+  // Sync hero phase with header toggle: on = load, off = unload to placeholder.
   useEffect(() => {
-    if (!isActivated || !canOffer3D || phase !== 'idle') return;
+    if (!isActivated) {
+      setPhase('idle');
+      setCanImport(false);
+      return;
+    }
+
+    if (!canOffer3D || phase !== 'idle') return;
     setPhase('loading');
   }, [isActivated, canOffer3D, phase]);
 
@@ -215,7 +226,7 @@ function SplineFrameHero({
     };
   }, [phase, canImport]);
 
-  const shouldLoad = canImport && canOffer3D;
+  const shouldLoad = isActivated && canImport && canOffer3D;
   const { Viewer, isLoaded, hasFailed, setIsLoaded, setHasFailed } =
     useSplineRuntime(shouldLoad);
 

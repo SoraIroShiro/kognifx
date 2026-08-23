@@ -11,6 +11,8 @@ import {
 type SplineActivationContextValue = {
   isActivated: boolean;
   activate: () => void;
+  deactivate: () => void;
+  toggle: () => void;
 };
 
 const SplineActivationContext =
@@ -23,9 +25,13 @@ export function SplineActivationProvider({
 }) {
   const [isActivated, setIsActivated] = useState(false);
   const activate = useCallback(() => setIsActivated(true), []);
+  const deactivate = useCallback(() => setIsActivated(false), []);
+  const toggle = useCallback(() => setIsActivated((prev) => !prev), []);
 
   return (
-    <SplineActivationContext.Provider value={{ isActivated, activate }}>
+    <SplineActivationContext.Provider
+      value={{ isActivated, activate, deactivate, toggle }}
+    >
       {children}
     </SplineActivationContext.Provider>
   );

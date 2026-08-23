@@ -10,12 +10,12 @@ import { useEffect, useState } from 'react';
 
 const copy = {
   en: {
-    idle: 'Explore interactive 3D',
-    active: 'Interactive 3D enabled',
+    enable: 'Enable interactive 3D',
+    disable: 'Disable interactive 3D',
   },
   id: {
-    idle: 'Jelajahi 3D interaktif',
-    active: '3D interaktif aktif',
+    enable: 'Aktifkan 3D interaktif',
+    disable: 'Nonaktifkan 3D interaktif',
   },
 } as const;
 
@@ -26,7 +26,7 @@ export function SplineHeaderTrigger({
 }) {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
-  const { isActivated, activate } = useSplineActivation();
+  const { isActivated, toggle } = useSplineActivation();
   const [canOffer3D, setCanOffer3D] = useState(false);
 
   // English homepage is the only route that mounts Spline.
@@ -45,19 +45,20 @@ export function SplineHeaderTrigger({
   }
 
   const labels = copy[locale];
+  const label = isActivated ? labels.disable : labels.enable;
 
   return (
     <button
       type='button'
-      onClick={() => {
-        if (!isActivated) activate();
-      }}
-      disabled={isActivated}
+      onClick={toggle}
       aria-pressed={isActivated}
-      aria-label={isActivated ? labels.active : labels.idle}
-      title={isActivated ? labels.active : labels.idle}
+      aria-label={label}
+      title={label}
       className={cn(
-        'inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-default disabled:opacity-100 disabled:text-foreground',
+        'inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+        isActivated
+          ? 'text-foreground'
+          : 'text-muted-foreground hover:text-foreground',
         className
       )}
     >
