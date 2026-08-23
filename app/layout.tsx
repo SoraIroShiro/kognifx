@@ -31,9 +31,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/kognifx-mark.png', type: 'image/png', sizes: '64x64' },
+    ],
     shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
   openGraph: {
     type: 'website',

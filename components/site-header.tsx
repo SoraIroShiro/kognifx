@@ -7,6 +7,7 @@ import {
   getLocaleFromPathname,
   getNavItemsForLocale,
 } from '@/lib/marketing-navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -23,9 +24,18 @@ export function SiteHeader() {
       <div className='container flex h-[3.5rem] items-center justify-between gap-4'>
         <Link
           href={homeHref}
-          className='shrink-0 text-md font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+          className='flex shrink-0 items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+          aria-label='Kognifx home'
         >
-          KOGNIFX
+          <Image
+            src='/kognifx-mark.png'
+            alt=''
+            width={28}
+            height={28}
+            className='h-7 w-7 rounded-sm'
+            priority
+          />
+          <span className='text-sm font-bold tracking-[0.18em]'>KOGNIFX</span>
         </Link>
 
         <nav

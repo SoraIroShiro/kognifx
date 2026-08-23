@@ -64,7 +64,7 @@ export function IndonesianHomepageContent() {
             Kognifx merancang dan membangun sistem berdasarkan kebutuhan
             operasional yang sebenarnya. Solusinya bisa berupa custom software,
             sistem enterprise, AI & automation, digital commerce, digital
-            platforms, hingga IoT & integration—dipilih karena sesuai masalah,
+            platforms, hingga IoT & integration, dipilih karena sesuai masalah,
             bukan karena menjadi penawaran bawaan.
           </p>
           <ul className='mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
@@ -94,13 +94,14 @@ export function IndonesianHomepageContent() {
           </h2>
           <p className='mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground'>
             Ketika memberi nilai praktis, AI dapat diintegrasikan ke dalam
-            sistem yang dibangun Kognifx—membantu mengurangi pekerjaan manual,
-            memperjelas informasi, dan mendukung keputusan yang lebih baik.
+            sistem yang dibangun Kognifx. Hal ini membantu mengurangi pekerjaan
+            manual, memperjelas informasi, dan mendukung keputusan yang lebih
+            baik.
           </p>
           <p className='mt-4 max-w-3xl leading-relaxed text-muted-foreground'>
             Penerapannya dapat mencakup AI assistant, AI agent, intelligent
             workflow, document intelligence, decision support, dan
-            automation—disesuaikan dengan konteks, bukan ditambahkan sebagai
+            automation, disesuaikan dengan konteks, bukan ditambahkan sebagai
             lapisan marketing.
           </p>
         </section>

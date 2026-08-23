@@ -11,6 +11,7 @@ import type { Locale } from '@/lib/language-routes';
 import { useId, type FormEvent } from 'react';
 
 type ContactFormCopy = {
+  formTitle: string;
   nameLabel: string;
   companyLabel: string;
   emailLabel: string;
@@ -36,6 +37,7 @@ type InquiryValues = {
 
 const copyByLocale: Record<Locale, ContactFormCopy> = {
   en: {
+    formTitle: 'Project inquiry',
     nameLabel: 'Name',
     companyLabel: 'Company / Organization',
     emailLabel: 'Email',
@@ -58,6 +60,7 @@ const copyByLocale: Record<Locale, ContactFormCopy> = {
     emptyOptionalValue: '-',
   },
   id: {
+    formTitle: 'Form konsultasi',
     nameLabel: 'Nama',
     companyLabel: 'Perusahaan / Organisasi',
     emailLabel: 'Email',
@@ -162,11 +165,16 @@ export function ContactInquiryForm({ locale }: { locale: Locale }) {
   };
 
   const fieldClass =
-    'flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50';
+    'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50';
+
+  const selectClass = `${fieldClass} dark:[color-scheme:dark]`;
 
   return (
-    <div className='mt-10 max-w-xl'>
-      <form className='space-y-5' onSubmit={handleSubmit}>
+    <form className='space-y-5' onSubmit={handleSubmit}>
+      <div>
+        <h2 className='text-xl font-medium tracking-tight'>{copy.formTitle}</h2>
+        <p className='mt-2 text-sm text-muted-foreground'>{copy.handoffHint}</p>
+      </div>
         <div className='space-y-2'>
           <Label htmlFor={`${formId}-name`}>{copy.nameLabel}</Label>
           <Input
@@ -229,18 +237,22 @@ export function ContactInquiryForm({ locale }: { locale: Locale }) {
             id={`${formId}-project-type`}
             name='projectType'
             defaultValue=''
-            className={fieldClass}
+            className={selectClass}
           >
-            <option value=''>{copy.projectTypePlaceholder}</option>
+            <option value='' className='bg-background text-foreground'>
+              {copy.projectTypePlaceholder}
+            </option>
             {copy.projectTypes.map((option) => (
-              <option key={option.value} value={option.value}>
+              <option
+                key={option.value}
+                value={option.value}
+                className='bg-background text-foreground'
+              >
                 {option.label}
               </option>
             ))}
           </select>
         </div>
-
-        <p className='text-sm text-muted-foreground'>{copy.handoffHint}</p>
 
         <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
           <Button type='submit' size='lg' className='rounded-full'>
@@ -253,7 +265,6 @@ export function ContactInquiryForm({ locale }: { locale: Locale }) {
             {copy.emailFallbackLabel}
           </a>
         </div>
-      </form>
-    </div>
+    </form>
   );
 }

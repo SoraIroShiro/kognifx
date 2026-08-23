@@ -1,6 +1,9 @@
 import { ContactInquiryForm } from '@/components/contact/contact-inquiry-form';
 import {
-  MarketingPageIntro,
+  ContactChannelsPanel,
+  ContactFormPanel,
+  ContactPageLayout,
+  MarketingPageHero,
   MarketingPageShell,
 } from '@/components/marketing/marketing-page-shell';
 import { JsonLd } from '@/components/structured-data/json-ld';
@@ -29,17 +32,22 @@ export default function KontakPage() {
           inLanguage: 'id-ID',
         })}
       />
-      <h1 className='max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl'>
-        Ceritakan Masalah yang Ingin Anda Selesaikan.
-      </h1>
 
-      <MarketingPageIntro>
+      <MarketingPageHero
+        eyebrow='Kontak'
+        title='Ceritakan Masalah yang Ingin Anda Selesaikan.'
+      >
         Anda tidak harus sudah mengetahui teknologi apa yang dibutuhkan.
         Ceritakan proses, masalah, atau ide yang ingin dikembangkan, dan
         Kognifx akan membantu menyusun solusi yang tepat.
-      </MarketingPageIntro>
+      </MarketingPageHero>
 
-      <ContactInquiryForm locale='id' />
+      <ContactPageLayout>
+        <ContactChannelsPanel locale='id' />
+        <ContactFormPanel>
+          <ContactInquiryForm locale='id' />
+        </ContactFormPanel>
+      </ContactPageLayout>
     </MarketingPageShell>
   );
 }

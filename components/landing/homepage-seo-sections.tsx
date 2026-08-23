@@ -22,7 +22,7 @@ export function HomepageSeoSections() {
           Kognifx designs and builds systems around real operational needs.
           That can include custom software, enterprise systems, AI and
           automation, digital commerce, digital platforms, and IoT and
-          integration work—chosen because they fit the problem, not because
+          integration work, chosen because they fit the problem, not because
           they are the default offering.
         </p>
         <ul className='mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
@@ -52,7 +52,7 @@ export function HomepageSeoSections() {
         </h2>
         <p className='mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground'>
           When it creates practical value, AI can be integrated into the
-          systems Kognifx builds—helping teams reduce manual work, clarify
+          systems Kognifx builds. It helps teams reduce manual work, clarify
           information, and support better decisions.
         </p>
         <p className='mt-4 max-w-3xl leading-relaxed text-muted-foreground'>
