@@ -3,6 +3,10 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import {
+  getContactMailtoHref,
+  getWhatsAppHandoffUrl,
+} from '@/lib/contact-channels';
 import type { Locale } from '@/lib/language-routes';
 import { useId, type FormEvent } from 'react';
 
@@ -16,8 +20,18 @@ type ContactFormCopy = {
   projectTypePlaceholder: string;
   projectTypes: Array<{ value: string; label: string }>;
   submitLabel: string;
-  noticeTitle: string;
-  noticeBody: string;
+  handoffHint: string;
+  emailFallbackLabel: string;
+  emptyOptionalValue: string;
+};
+
+type InquiryValues = {
+  name: string;
+  company: string;
+  email: string;
+  whatsapp: string;
+  problem: string;
+  projectType: string;
 };
 
 const copyByLocale: Record<Locale, ContactFormCopy> = {
@@ -37,10 +51,11 @@ const copyByLocale: Record<Locale, ContactFormCopy> = {
       { value: 'iot-integration', label: 'IoT / Integration' },
       { value: 'not-sure', label: 'Not Sure Yet' },
     ],
-    submitLabel: 'Discuss My Project',
-    noticeTitle: 'Online submission is not available yet',
-    noticeBody:
-      'You can prepare your details here, but messages cannot be sent through this form until a secure submission channel is connected.',
+    submitLabel: 'Continue via WhatsApp',
+    handoffHint:
+      'Your inquiry will be prepared as a WhatsApp message. You can review it before sending.',
+    emailFallbackLabel: 'Email Kognifx',
+    emptyOptionalValue: '-',
   },
   id: {
     nameLabel: 'Nama',
@@ -58,12 +73,55 @@ const copyByLocale: Record<Locale, ContactFormCopy> = {
       { value: 'iot-integration', label: 'IoT / Integration' },
       { value: 'not-sure', label: 'Belum Yakin' },
     ],
-    submitLabel: 'Konsultasikan Proyek',
-    noticeTitle: 'Pengiriman online belum tersedia',
-    noticeBody:
-      'Anda dapat menyiapkan detail di sini, tetapi pesan belum dapat dikirim melalui formulir ini sampai saluran pengiriman yang aman tersedia.',
+    submitLabel: 'Lanjutkan via WhatsApp',
+    handoffHint:
+      'Data konsultasi akan disiapkan sebagai pesan WhatsApp. Anda dapat memeriksanya sebelum mengirim.',
+    emailFallbackLabel: 'Email Kognifx',
+    emptyOptionalValue: '-',
   },
 };
+
+function buildWhatsAppMessage(
+  locale: Locale,
+  values: InquiryValues,
+  emptyOptionalValue: string
+): string {
+  const company = values.company || emptyOptionalValue;
+  const whatsapp = values.whatsapp || emptyOptionalValue;
+  const projectType = values.projectType || emptyOptionalValue;
+
+  if (locale === 'id') {
+    return [
+      'Halo Kognifx,',
+      '',
+      `Nama: ${values.name}`,
+      `Perusahaan / Organisasi: ${company}`,
+      `Email: ${values.email}`,
+      `WhatsApp: ${whatsapp}`,
+      `Jenis Proyek: ${projectType}`,
+      '',
+      'Masalah atau kebutuhan yang ingin saya selesaikan:',
+      values.problem,
+      '',
+      'Saya ingin berkonsultasi mengenai kebutuhan ini dengan Kognifx.',
+    ].join('\n');
+  }
+
+  return [
+    'Hello Kognifx,',
+    '',
+    `Name: ${values.name}`,
+    `Company / Organization: ${company}`,
+    `Email: ${values.email}`,
+    `WhatsApp: ${whatsapp}`,
+    `Project Type: ${projectType}`,
+    '',
+    'What I am trying to solve:',
+    values.problem,
+    '',
+    'I would like to discuss this requirement with Kognifx.',
+  ].join('\n');
+}
 
 export function ContactInquiryForm({ locale }: { locale: Locale }) {
   const copy = copyByLocale[locale];
@@ -71,6 +129,36 @@ export function ContactInquiryForm({ locale }: { locale: Locale }) {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = new FormData(form);
+    const projectTypeValue = String(data.get('projectType') ?? '').trim();
+    const projectTypeLabel =
+      copy.projectTypes.find((option) => option.value === projectTypeValue)
+        ?.label ?? '';
+
+    const values: InquiryValues = {
+      name: String(data.get('name') ?? '').trim(),
+      company: String(data.get('company') ?? '').trim(),
+      email: String(data.get('email') ?? '').trim(),
+      whatsapp: String(data.get('whatsapp') ?? '').trim(),
+      problem: String(data.get('problem') ?? '').trim(),
+      projectType: projectTypeLabel,
+    };
+
+    const message = buildWhatsAppMessage(
+      locale,
+      values,
+      copy.emptyOptionalValue
+    );
+    const destination = getWhatsAppHandoffUrl(message);
+
+    window.open(destination, '_blank', 'noopener,noreferrer');
   };
 
   const fieldClass =
@@ -78,24 +166,7 @@ export function ContactInquiryForm({ locale }: { locale: Locale }) {
 
   return (
     <div className='mt-10 max-w-xl'>
-      <div
-        role='status'
-        className='mb-6 rounded-lg border border-border/70 bg-muted/30 px-4 py-3 text-sm text-muted-foreground'
-      >
-        <p className='font-medium text-foreground'>{copy.noticeTitle}</p>
-        <p className='mt-1'>{copy.noticeBody}</p>
-      </div>
-
-      <form
-        className='space-y-5'
-        onSubmit={handleSubmit}
-        noValidate
-        aria-describedby={`${formId}-notice`}
-      >
-        <p id={`${formId}-notice`} className='sr-only'>
-          {copy.noticeTitle}. {copy.noticeBody}
-        </p>
-
+      <form className='space-y-5' onSubmit={handleSubmit}>
         <div className='space-y-2'>
           <Label htmlFor={`${formId}-name`}>{copy.nameLabel}</Label>
           <Input
@@ -146,7 +217,7 @@ export function ContactInquiryForm({ locale }: { locale: Locale }) {
             name='problem'
             required
             rows={5}
-            className={fieldClass}
+            className={`${fieldClass} min-h-[8rem] py-2`}
           />
         </div>
 
@@ -160,9 +231,7 @@ export function ContactInquiryForm({ locale }: { locale: Locale }) {
             defaultValue=''
             className={fieldClass}
           >
-            <option value='' disabled>
-              {copy.projectTypePlaceholder}
-            </option>
+            <option value=''>{copy.projectTypePlaceholder}</option>
             {copy.projectTypes.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -171,9 +240,19 @@ export function ContactInquiryForm({ locale }: { locale: Locale }) {
           </select>
         </div>
 
-        <Button type='submit' size='lg' className='rounded-full' disabled>
-          {copy.submitLabel}
-        </Button>
+        <p className='text-sm text-muted-foreground'>{copy.handoffHint}</p>
+
+        <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
+          <Button type='submit' size='lg' className='rounded-full'>
+            {copy.submitLabel}
+          </Button>
+          <a
+            href={getContactMailtoHref()}
+            className='inline-flex h-10 items-center justify-center rounded-full border border-input bg-background px-6 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'
+          >
+            {copy.emailFallbackLabel}
+          </a>
+        </div>
       </form>
     </div>
   );
