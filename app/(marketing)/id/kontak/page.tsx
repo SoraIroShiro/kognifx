@@ -1,12 +1,32 @@
+import { ContactInquiryForm } from '@/components/contact/contact-inquiry-form';
+import {
+  MarketingPageIntro,
+  MarketingPageShell,
+} from '@/components/marketing/marketing-page-shell';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: {
+    absolute: 'Hubungi Kognifx — Konsultasikan Proyek Software atau AI',
+  },
+  description:
+    'Ceritakan masalah bisnis, kebutuhan software, ide automation, atau proyek teknologi Anda kepada Kognifx untuk merancang solusi yang tepat bersama.',
+};
+
 export default function KontakPage() {
   return (
-    <section className='mx-auto w-full max-w-screen-xl px-6 py-24 md:px-8 lg:py-28'>
-      <h1 className='text-4xl font-medium tracking-tight sm:text-5xl'>
-        Kontak Kognifx
+    <MarketingPageShell>
+      <h1 className='max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl'>
+        Ceritakan Masalah yang Ingin Anda Selesaikan.
       </h1>
-      <p className='mt-4 max-w-2xl text-muted-foreground'>
-        Konten lengkap untuk halaman ini akan segera ditambahkan.
-      </p>
-    </section>
+
+      <MarketingPageIntro>
+        Anda tidak harus sudah mengetahui teknologi apa yang dibutuhkan.
+        Ceritakan proses, masalah, atau ide yang ingin dikembangkan, dan
+        Kognifx akan membantu menyusun solusi yang tepat.
+      </MarketingPageIntro>
+
+      <ContactInquiryForm locale='id' />
+    </MarketingPageShell>
   );
 }

@@ -2,8 +2,10 @@
 
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { SplineFrame } from '@/components/landing/spline-frame';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import InteractiveHoverButton from '@/components/ui/interactive-hover-button';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -31,20 +33,31 @@ export default function HeroSection() {
           into Working Systems.
         </h1>
         <p className='mb-12 text-lg tracking-tight text-gray-400 md:text-xl text-balance'>
-          Kognifx helps organizations solve complex operational and decision
-          problems by turning fragmented thinking into structured systems,
-          <br className='hidden md:block' /> accelerated by AI.
+          Kognifx is an AI-first software house and technology partner that
+          builds custom software, enterprise systems, automation, AI agents,
+          and IoT solutions for real-world business problems.
         </p>
 
-        <a
-          href='#'
-          aria-label='Start a strategic conversation'
-          className='pointer-events-auto relative z-20 inline-flex'
-        >
-          <InteractiveHoverButton>
-            Start Strategic Discussion
-          </InteractiveHoverButton>
-        </a>
+        <div className='pointer-events-auto relative z-20 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4'>
+          <Link
+            href='/contact'
+            className={cn(
+              buttonVariants({ size: 'lg' }),
+              'rounded-full px-6'
+            )}
+          >
+            Discuss Your Project
+          </Link>
+          <Link
+            href='/solutions'
+            className={cn(
+              buttonVariants({ size: 'lg', variant: 'outline' }),
+              'rounded-full px-6'
+            )}
+          >
+            Explore Solutions
+          </Link>
+        </div>
       </div>
       <div
         className='hidden relative mt-[8rem] animate-fade-up opacity-0 [--animation-delay:400ms] [perspective:2000px] after:absolute after:inset-0 after:z-50 after:[background:linear-gradient(to_top,hsl(var(--background))_30%,transparent)]'

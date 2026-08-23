@@ -1,12 +1,31 @@
+import { ContactInquiryForm } from '@/components/contact/contact-inquiry-form';
+import {
+  MarketingPageIntro,
+  MarketingPageShell,
+} from '@/components/marketing/marketing-page-shell';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: {
+    absolute: 'Talk to Kognifx — Discuss Your Software or AI Project',
+  },
+  description:
+    'Tell Kognifx about your business problem, software requirement, automation idea, or technology project and explore the right solution together.',
+};
+
 export default function ContactPage() {
   return (
-    <section className='mx-auto w-full max-w-screen-xl px-6 py-24 md:px-8 lg:py-28'>
-      <h1 className='text-4xl font-medium tracking-tight sm:text-5xl'>
-        Contact Kognifx
+    <MarketingPageShell>
+      <h1 className='max-w-4xl text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl'>
+        Let&apos;s Understand the Problem First.
       </h1>
-      <p className='mt-4 max-w-2xl text-muted-foreground'>
-        Full content for this section is coming soon.
-      </p>
-    </section>
+
+      <MarketingPageIntro>
+        You don&apos;t need to know exactly what technology you need. Tell us
+        what is happening, what needs to improve, or what you want to build.
+      </MarketingPageIntro>
+
+      <ContactInquiryForm locale='en' />
+    </MarketingPageShell>
   );
 }

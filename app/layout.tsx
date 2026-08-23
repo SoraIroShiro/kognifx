@@ -40,8 +40,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: `${siteUrl}/`,
     title: seoDefaults.title,
-    description:
-      'Kognifx turns complexity into clarity and clarity into working systems.',
+    description: seoDefaults.description,
     siteName: seoDefaults.siteName,
     locale: seoDefaults.locale,
     images: [
@@ -56,8 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: seoDefaults.title,
-    description:
-      'Kognifx helps organizations structure complexity into scalable working systems with AI.',
+    description: seoDefaults.description,
     images: ['/showgoogle.png'],
   },
 };

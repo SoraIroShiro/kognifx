@@ -1,4 +1,5 @@
 import HeroSection from '@/components/landing/hero-section';
+import { HomepageSeoSections } from '@/components/landing/homepage-seo-sections';
 import { Testimoni } from '@/components/landing/marque-cs';
 import FAQPage from '@/components/landing/sesi-faq';
 import SideUnik from '@/components/landing/side-content';
@@ -16,6 +17,7 @@ export default async function Page() {
       <HomepageJsonLd />
       <HeroSection />
       <SideUnik />
+      <HomepageSeoSections />
       <Testimoni />
       <Particles
         className='absolute inset-0 -z-10'
