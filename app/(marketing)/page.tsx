@@ -4,7 +4,6 @@ import { Testimoni } from '@/components/landing/marque-cs';
 import FAQPage from '@/components/landing/sesi-faq';
 import SideUnik from '@/components/landing/side-content';
 import { HomepageJsonLd } from '@/components/structured-data/homepage-json-ld';
-import { SplineActivationProvider } from '@/lib/spline-activation';
 import { createMarketingMetadata } from '@/lib/page-metadata';
 import { seoDefaults } from '@/lib/seo';
 import dynamic from 'next/dynamic';
@@ -21,7 +20,7 @@ export const metadata = createMarketingMetadata({
 
 export default async function Page() {
   return (
-    <SplineActivationProvider>
+    <>
       <HomepageJsonLd />
       <HeroSection />
       <SideUnik />
@@ -36,6 +35,6 @@ export default async function Page() {
         color={'#ffffff'}
       />
       <FAQPage />
-    </SplineActivationProvider>
+    </>
   );
 }

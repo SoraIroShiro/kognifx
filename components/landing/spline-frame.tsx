@@ -61,19 +61,6 @@ function Placeholder() {
   );
 }
 
-function SplineActivationButton({ onActivate }: { onActivate: () => void }) {
-  return (
-    <button
-      type='button'
-      onClick={onActivate}
-      aria-label='Explore interactive 3D experience'
-      className='pointer-events-auto absolute inset-0 z-10 m-auto h-fit w-fit rounded-full border border-white/10 bg-background/60 px-5 py-2.5 text-sm font-medium tracking-tight text-foreground/90 backdrop-blur-sm transition-colors hover:bg-background/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
-    >
-      Explore Interactive 3D
-    </button>
-  );
-}
-
 function SplineLoadingStatus() {
   return (
     <div
@@ -198,7 +185,7 @@ function SplineFrameHero({
   scene: string;
   className?: string;
 }) {
-  const { activate } = useSplineActivation();
+  const { isActivated } = useSplineActivation();
   const [canOffer3D, setCanOffer3D] = useState(false);
   const [phase, setPhase] = useState<HeroPhase>('idle');
   const [canImport, setCanImport] = useState(false);
@@ -206,6 +193,12 @@ function SplineFrameHero({
   useEffect(() => {
     setCanOffer3D(shouldEnableHeavy3D());
   }, []);
+
+  // Header (or any) activate() flips context — start loading UI only after that.
+  useEffect(() => {
+    if (!isActivated || !canOffer3D || phase !== 'idle') return;
+    setPhase('loading');
+  }, [isActivated, canOffer3D, phase]);
 
   // Stage 2: only after loading UI has painted, allow heavy import.
   useEffect(() => {
@@ -232,18 +225,10 @@ function SplineFrameHero({
     }
   }, [isLoaded, phase]);
 
-  const showActivation = canOffer3D && phase === 'idle' && !hasFailed;
   const showLoading =
     (phase === 'loading' || phase === 'ready') && !hasFailed && !isLoaded;
   const shouldRender = shouldLoad && !hasFailed && Viewer;
   const showPlaceholder = !isLoaded || hasFailed || !shouldLoad;
-
-  // Lightweight click: UI + context only. No import, no sync heavy work.
-  const handleActivate = () => {
-    if (phase !== 'idle') return;
-    activate();
-    setPhase('loading');
-  };
 
   return (
     <div className={`relative h-full w-full overflow-hidden ${className}`}>
@@ -255,10 +240,6 @@ function SplineFrameHero({
       >
         <Placeholder />
       </div>
-
-      {showActivation ? (
-        <SplineActivationButton onActivate={handleActivate} />
-      ) : null}
 
       {showLoading ? <SplineLoadingStatus /> : null}
 

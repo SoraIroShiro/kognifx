@@ -1,5 +1,6 @@
 'use client';
 
+import { SplineHeaderTrigger } from '@/components/landing/spline-header-trigger';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler';
 import {
@@ -28,11 +29,11 @@ export function SiteHeader() {
           aria-label='Kognifx home'
         >
           <Image
-            src='/kognifx-mark.png'
+            src='/kognifx-logo.png'
             alt=''
             width={28}
             height={28}
-            className='h-7 w-7 rounded-sm'
+            className='h-7 w-7 rounded-sm object-contain'
             priority
           />
           <span className='text-sm font-bold tracking-[0.18em]'>KOGNIFX</span>
@@ -60,7 +61,8 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className='flex items-center gap-3'>
+        <div className='flex items-center gap-2 sm:gap-3'>
+          <SplineHeaderTrigger />
           <LanguageSwitcher />
           <AnimatedThemeToggler />
           <button
