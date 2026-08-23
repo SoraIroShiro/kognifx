@@ -120,14 +120,14 @@ export function IndonesianHomepageContent() {
             membangun sistem yang tepat. Pelajari pendekatan kami di halaman{' '}
             <Link
               href='/id/tentang'
-              className='text-foreground underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+              className='text-foreground underline underline-offset-4 decoration-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
             >
               Tentang
             </Link>
             , atau{' '}
             <Link
               href='/id/kontak'
-              className='text-foreground underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+              className='text-foreground underline underline-offset-4 decoration-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
             >
               konsultasikan kebutuhan Anda
             </Link>

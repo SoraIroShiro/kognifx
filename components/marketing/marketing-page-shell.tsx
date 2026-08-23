@@ -279,7 +279,7 @@ export function ContactChannelsPanel({
         <p className='mt-2 text-sm text-muted-foreground'>{copy.emailHint}</p>
         <a
           href='mailto:panparci.id@gmail.com'
-          className='mt-3 inline-flex text-sm font-medium text-foreground underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+          className='mt-3 inline-flex text-sm font-medium text-foreground underline underline-offset-4 decoration-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
         >
           panparci.id@gmail.com
         </a>
