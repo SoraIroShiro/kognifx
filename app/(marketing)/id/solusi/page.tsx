@@ -45,7 +45,12 @@ const solutionGroups: SolutionGroup[] = [
     title: 'Enterprise & Operations',
     description:
       'Sistem untuk mendukung operasional inti, alur kerja internal, dan pengelolaan harian lintas divisi.',
-    detailLinks: [{ label: 'ERP Custom', href: '/id/solusi/erp-custom' }],
+    detailLinks: [
+      { label: 'ERP Custom', href: '/id/solusi/erp-custom' },
+      { label: 'CRM', href: '/id/solusi/crm' },
+      { label: 'HRIS / HRMS', href: '/id/solusi/hris' },
+      { label: 'WMS / Inventory', href: '/id/solusi/wms-inventory' },
+    ],
     items: [
       'ERP',
       'CRM',
@@ -85,6 +90,12 @@ const solutionGroups: SolutionGroup[] = [
     title: 'Commerce & Customer Platforms',
     description:
       'Platform untuk penjualan, layanan pelanggan, booking, dan interaksi digital yang berkelanjutan.',
+    detailLinks: [
+      {
+        label: 'E-Commerce / Marketplace',
+        href: '/id/solusi/ecommerce-marketplace',
+      },
+    ],
     items: [
       'E-Commerce',
       'Marketplace',
@@ -100,6 +111,12 @@ const solutionGroups: SolutionGroup[] = [
     title: 'Digital Platforms',
     description:
       'Platform multi-pengguna atau multi-tenant untuk komunitas, pembelajaran, keuangan, atau ekosistem digital yang lebih luas.',
+    detailLinks: [
+      {
+        label: 'SaaS / Multi-Tenant Platform',
+        href: '/id/solusi/saas-platform',
+      },
+    ],
     items: [
       'Social Platform',
       'Community Platform',
