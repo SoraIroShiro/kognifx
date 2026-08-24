@@ -172,6 +172,20 @@ export default function SoftwareCustomPage() {
               'Menghubungkan software baru dengan aplikasi dan data yang sudah ada.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu Software Custom?',
+            href: '/id/insight/apa-itu-software-custom',
+            description:
+              'Pengertian, kapan dibutuhkan, dan contoh penggunaan di operasional bisnis.',
+          },
+          {
+            label: 'Software Custom vs Software Siap Pakai',
+            href: '/id/insight/software-custom-vs-software-siap-pakai',
+            description:
+              'Kerangka keputusan build vs buy tanpa mengubah halaman jasa ini menjadi artikel perbandingan.',
+          },
+        ]}
         ctaTitle='Butuh software yang mengikuti proses bisnis Anda?'
         ctaDescription='Ceritakan masalah operasional atau ide sistem yang ingin dibangun. Kami bantu menentukan apakah software custom adalah jawaban yang tepat.'
         ctaLabel='Konsultasikan Kebutuhan Software Anda'

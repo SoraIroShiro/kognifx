@@ -168,6 +168,20 @@ export default function ErpCustomPage() {
               'Menghubungkan ERP dengan CRM, payment, atau sistem legacy.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu ERP?',
+            href: '/id/insight/apa-itu-erp',
+            description:
+              'Pengertian ERP, modul umum, dan kapan perusahaan mulai membutuhkan sistem terpusat.',
+          },
+          {
+            label: 'ERP Custom vs ERP Siap Pakai',
+            href: '/id/insight/erp-custom-vs-erp-siap-pakai',
+            description:
+              'Kerangka keputusan antara ERP paket dan ERP yang menyesuaikan proses bisnis.',
+          },
+        ]}
         ctaTitle='Evaluasi kebutuhan ERP perusahaan Anda'
         ctaDescription='Ceritakan proses operasional yang ingin disatukan. Kami bantu menilai apakah ERP custom, perluasan sistem existing, atau pendekatan modular bertahap yang paling tepat.'
         ctaLabel='Konsultasikan Sistem ERP Anda'

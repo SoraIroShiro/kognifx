@@ -13,6 +13,7 @@ export const englishNavItems: MarketingNavItem[] = [
 
 export const indonesianNavItems: MarketingNavItem[] = [
   { label: 'Solusi', href: '/id/solusi' },
+  { label: 'Insight', href: '/id/insight' },
   { label: 'Tentang', href: '/id/tentang' },
   { label: 'Kontak', href: '/id/kontak' },
 ];

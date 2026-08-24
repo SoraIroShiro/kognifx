@@ -183,6 +183,20 @@ export default function IntegrasiSistemPage() {
             description: 'Integrasi data perangkat ke sistem bisnis.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu System Integration?',
+            href: '/id/insight/apa-itu-system-integration',
+            description:
+              'Cara menghubungkan aplikasi, data, dan workflow tanpa membangun ulang semua sistem.',
+          },
+          {
+            label: 'Manfaat Integrasi API untuk Bisnis',
+            href: '/id/insight/manfaat-integrasi-api',
+            description:
+              'Mengapa API membantu sinkronisasi data, otomasi, dan koneksi antar aplikasi.',
+          },
+        ]}
         ctaTitle='Sistem perusahaan perlu disatukan?'
         ctaDescription='Ceritakan aplikasi, data, dan workflow yang saat ini terputus. Kami bantu menilai pendekatan integrasi yang paling realistis.'
         ctaLabel='Konsultasikan Integrasi Sistem Anda'

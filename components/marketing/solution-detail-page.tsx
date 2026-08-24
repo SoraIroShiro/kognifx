@@ -27,6 +27,11 @@ type SolutionDetailPageProps = {
   sections: SolutionDetailSection[];
   capabilityTags?: string[];
   relatedSolutions: RelatedSolutionLink[];
+  relatedInsights?: Array<{
+    label: string;
+    href: string;
+    description?: string;
+  }>;
   ctaTitle: string;
   ctaDescription: ReactNode;
   ctaLabel: string;
@@ -58,6 +63,7 @@ export function SolutionDetailPage({
   sections,
   capabilityTags,
   relatedSolutions,
+  relatedInsights,
   ctaTitle,
   ctaDescription,
   ctaLabel,
@@ -114,6 +120,30 @@ export function SolutionDetailPage({
             </Link>
             .
           </p>
+        </section>
+      ) : null}
+
+      {relatedInsights && relatedInsights.length > 0 ? (
+        <section className='mt-16'>
+          <h2 className='text-2xl font-medium tracking-tight sm:text-3xl'>
+            Insight terkait
+          </h2>
+          <p className='mt-4 max-w-3xl text-muted-foreground'>
+            Materi berikut membahas konsep dan pertimbangan, bukan penawaran
+            jasa.
+          </p>
+          <ul className='mt-5 max-w-3xl space-y-3 text-muted-foreground'>
+            {relatedInsights.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className={inlineLinkClass}>
+                  {item.label}
+                </Link>
+                {item.description ? (
+                  <span className='mt-1 block text-sm'>{item.description}</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
         </section>
       ) : null}
 

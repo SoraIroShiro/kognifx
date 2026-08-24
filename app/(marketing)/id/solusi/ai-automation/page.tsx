@@ -181,6 +181,26 @@ export default function AiAutomationPage() {
               'Automation di dalam proses operasional yang lebih terstruktur.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu AI Automation?',
+            href: '/id/insight/apa-itu-ai-automation',
+            description:
+              'Cara kerja, contoh workflow, dan kapan pendekatan ini relevan.',
+          },
+          {
+            label: 'AI Agent vs Automation Biasa',
+            href: '/id/insight/ai-agent-vs-automation-biasa',
+            description:
+              'Perbedaan rule-based automation, AI agent, dan pola hybrid.',
+          },
+          {
+            label: 'Apa Itu n8n dan Bagaimana Digunakan untuk Bisnis?',
+            href: '/id/insight/apa-itu-n8n-untuk-bisnis',
+            description:
+              'Pengantar n8n sebagai tool orkestrasi workflow, bukan halaman jasa n8n.',
+          },
+        ]}
         ctaTitle='Ingin mengevaluasi peluang automation?'
         ctaDescription='Ceritakan proses manual atau workflow yang ingin disederhanakan. Kami bantu menilai apakah AI automation, workflow tool, atau pendekatan lain yang paling masuk akal.'
         ctaLabel='Diskusikan Peluang Automation'

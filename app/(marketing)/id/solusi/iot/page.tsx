@@ -179,6 +179,14 @@ export default function IotPage() {
               'Alert, klasifikasi, atau workflow otomatis dari data sensor.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu IoT?',
+            href: '/id/insight/apa-itu-iot-untuk-bisnis',
+            description:
+              'Dasar IoT untuk bisnis: perangkat, telemetry, dashboard, dan integrasi ke software.',
+          },
+        ]}
         ctaTitle='Punya kebutuhan monitoring atau perangkat terhubung?'
         ctaDescription='Ceritakan perangkat, data, dan outcome operasional yang ingin dicapai. Kami bantu menilai arsitektur software IoT yang realistis untuk konteks Anda.'
         ctaLabel='Diskusikan Kebutuhan IoT Anda'

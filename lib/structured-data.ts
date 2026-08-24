@@ -108,3 +108,84 @@ export function getServicePageStructuredData({
     ],
   };
 }
+
+type UnpairedWebPageStructuredDataInput = {
+  path: string;
+  type?: 'WebPage' | 'CollectionPage';
+  name: string;
+  description: string;
+  inLanguage?: 'id-ID';
+};
+
+export function getUnpairedWebPageStructuredData({
+  path,
+  type = 'WebPage',
+  name,
+  description,
+  inLanguage = 'id-ID',
+}: UnpairedWebPageStructuredDataInput) {
+  const pageUrl = absoluteUrl(path);
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': type,
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name,
+    description,
+    inLanguage,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    publisher: {
+      '@id': organizationId,
+    },
+  };
+}
+
+type ArticleStructuredDataInput = {
+  path: string;
+  headline: string;
+  description: string;
+  inLanguage?: 'id-ID';
+};
+
+export function getArticleStructuredData({
+  path,
+  headline,
+  description,
+  inLanguage = 'id-ID',
+}: ArticleStructuredDataInput) {
+  const pageUrl = absoluteUrl(path);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: headline,
+        description,
+        inLanguage,
+        isPartOf: {
+          '@id': websiteId,
+        },
+      },
+      {
+        '@type': 'Article',
+        '@id': `${pageUrl}#article`,
+        headline,
+        description,
+        inLanguage,
+        url: pageUrl,
+        mainEntityOfPage: {
+          '@id': `${pageUrl}#webpage`,
+        },
+        publisher: {
+          '@id': organizationId,
+        },
+      },
+    ],
+  };
+}
