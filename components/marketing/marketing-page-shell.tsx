@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 export function MarketingPageShell({ children }: { children: ReactNode }) {
@@ -169,10 +170,16 @@ export function MarketingCtaPanel({
   );
 }
 
+export type SolutionDetailLink = {
+  label: string;
+  href: string;
+};
+
 export type SolutionGroup = {
   title: string;
   description: string;
   items: string[];
+  detailLinks?: SolutionDetailLink[];
 };
 
 const solutionAccents = [
@@ -226,6 +233,19 @@ export function SolutionsCategoryGrid({
                 </li>
               ))}
             </ul>
+            {group.detailLinks && group.detailLinks.length > 0 ? (
+              <div className='mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-border/60 pt-4'>
+                {group.detailLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className='text-sm font-medium text-foreground underline underline-offset-4 decoration-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
           </div>
         </section>
       ))}

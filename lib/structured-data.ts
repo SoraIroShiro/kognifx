@@ -62,3 +62,49 @@ export function getPageStructuredData({
     },
   };
 }
+
+type ServicePageStructuredDataInput = {
+  path: string;
+  name: string;
+  description: string;
+  inLanguage?: 'id-ID';
+};
+
+export function getServicePageStructuredData({
+  path,
+  name,
+  description,
+  inLanguage = 'id-ID',
+}: ServicePageStructuredDataInput) {
+  const pageUrl = absoluteUrl(path);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name,
+        description,
+        inLanguage,
+        isPartOf: {
+          '@id': websiteId,
+        },
+        about: {
+          '@id': organizationId,
+        },
+      },
+      {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        name,
+        description,
+        url: pageUrl,
+        provider: {
+          '@id': organizationId,
+        },
+      },
+    ],
+  };
+}

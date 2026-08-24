@@ -27,6 +27,9 @@ const solutionGroups: SolutionGroup[] = [
     title: 'Custom Software',
     description:
       'Aplikasi yang dibangun sesuai proses, pengguna, dan aturan bisnis Anda, bukan template generik yang dipaksakan.',
+    detailLinks: [
+      { label: 'Software Custom', href: '/id/solusi/software-custom' },
+    ],
     items: [
       'Company Profile',
       'Landing Page',
@@ -42,6 +45,7 @@ const solutionGroups: SolutionGroup[] = [
     title: 'Enterprise & Operations',
     description:
       'Sistem untuk mendukung operasional inti, alur kerja internal, dan pengelolaan harian lintas divisi.',
+    detailLinks: [{ label: 'ERP Custom', href: '/id/solusi/erp-custom' }],
     items: [
       'ERP',
       'CRM',
@@ -63,6 +67,9 @@ const solutionGroups: SolutionGroup[] = [
     title: 'AI & Automation',
     description:
       'Automation dan kecerdasan yang mengurangi pekerjaan manual serta mempercepat keputusan, selama AI benar-benar memberi nilai praktis.',
+    detailLinks: [
+      { label: 'AI & Automation', href: '/id/solusi/ai-automation' },
+    ],
     items: [
       'AI Agents',
       'Agentic AI',
@@ -106,6 +113,10 @@ const solutionGroups: SolutionGroup[] = [
     title: 'IoT & Integration',
     description:
       'Sistem terhubung dan integrasi yang menyatukan perangkat, API, data, dan tools operasional dalam satu alur kerja.',
+    detailLinks: [
+      { label: 'IoT', href: '/id/solusi/iot' },
+      { label: 'Integrasi Sistem', href: '/id/solusi/integrasi-sistem' },
+    ],
     items: [
       'IoT Systems',
       'Device Integration',

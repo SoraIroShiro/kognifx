@@ -1,14 +1,16 @@
 import type { MetadataRoute } from 'next';
 import { languageRoutePairs } from '@/lib/language-routes';
+import { indonesianSolutionDetailPaths } from '@/lib/indonesian-solution-routes';
 import { absoluteUrl } from '@/lib/absolute-url';
 
 /**
- * Public, indexable Phase 1 marketing routes.
+ * Public, indexable marketing routes.
  * lastModified is omitted until a reliable content-change timestamp exists.
- * Page-level hreflang remains authoritative for language relationships.
+ * Paired routes use page-level hreflang; unpaired ID solution pages self-canonicalize only.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = languageRoutePairs.flatMap((pair) => [pair.en, pair.id]);
+  const pairedPaths = languageRoutePairs.flatMap((pair) => [pair.en, pair.id]);
+  const paths = [...pairedPaths, ...indonesianSolutionDetailPaths];
 
   return paths.map((path) => ({
     url: absoluteUrl(path),
