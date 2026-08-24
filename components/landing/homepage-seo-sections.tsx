@@ -1,3 +1,4 @@
+import { WhatsAppConsultationLink } from '@/components/marketing/whatsapp-consultation-link';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -81,14 +82,14 @@ export function HomepageSeoSections() {
           >
             About
           </Link>{' '}
-          page, or{' '}
-          <Link
-            href='/contact'
-            className='text-foreground underline underline-offset-4 decoration-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
-          >
-            discuss your project
-          </Link>{' '}
-          with us.
+            page, or{' '}
+            <WhatsAppConsultationLink
+              locale='en'
+              className='text-foreground underline underline-offset-4 decoration-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+            >
+              discuss your project
+            </WhatsAppConsultationLink>{' '}
+            with us.
         </p>
       </section>
     </div>

@@ -7,12 +7,12 @@ import {
   MarketingProcessTimeline,
   MarketingTagList,
 } from '@/components/marketing/marketing-page-shell';
+import { WhatsAppConsultationLink } from '@/components/marketing/whatsapp-consultation-link';
 import { JsonLd } from '@/components/structured-data/json-ld';
 import { buttonVariants } from '@/components/ui/button';
 import { createMarketingMetadata } from '@/lib/page-metadata';
 import { getPageStructuredData } from '@/lib/structured-data';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 const title = 'Tentang Kognifx — Software House, AI & Systems Engineering';
 const description =
@@ -171,15 +171,15 @@ export default function TentangPage() {
       <MarketingCtaPanel
         title='Siap mendiskusikan kebutuhan Anda?'
         action={
-          <Link
-            href='/id/kontak'
+          <WhatsAppConsultationLink
+            locale='id'
             className={cn(
               buttonVariants({ size: 'lg' }),
               'inline-flex rounded-full'
             )}
           >
             Konsultasikan dengan Kognifx
-          </Link>
+          </WhatsAppConsultationLink>
         }
       >
         Ceritakan masalah atau ide yang ingin dikembangkan, dan kami akan

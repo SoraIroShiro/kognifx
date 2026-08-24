@@ -5,12 +5,12 @@ import {
   SolutionsCategoryGrid,
   type SolutionGroup,
 } from '@/components/marketing/marketing-page-shell';
+import { WhatsAppConsultationLink } from '@/components/marketing/whatsapp-consultation-link';
 import { JsonLd } from '@/components/structured-data/json-ld';
 import { buttonVariants } from '@/components/ui/button';
 import { createMarketingMetadata } from '@/lib/page-metadata';
 import { getPageStructuredData } from '@/lib/structured-data';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 const title = 'Software, AI & Technology Solutions | Kognifx';
 const description =
@@ -141,15 +141,15 @@ export default function SolutionsPage() {
       <MarketingCtaPanel
         title="Can't find the system you need?"
         action={
-          <Link
-            href='/contact'
+          <WhatsAppConsultationLink
+            locale='en'
             className={cn(
               buttonVariants({ size: 'lg' }),
               'inline-flex rounded-full'
             )}
           >
             Discuss Your Requirement
-          </Link>
+          </WhatsAppConsultationLink>
         }
       >
         That&apos;s usually where custom software begins.

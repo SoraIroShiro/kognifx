@@ -1,3 +1,4 @@
+import { WhatsAppConsultationLink } from '@/components/marketing/whatsapp-consultation-link';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -36,12 +37,12 @@ export function IndonesianHomepageContent() {
           </p>
 
           <div className='flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4'>
-            <Link
-              href='/id/kontak'
+            <WhatsAppConsultationLink
+              locale='id'
               className={cn(buttonVariants({ size: 'lg' }), 'rounded-full px-6')}
             >
               Konsultasikan Kebutuhan Anda
-            </Link>
+            </WhatsAppConsultationLink>
             <Link
               href='/id/solusi'
               className={cn(
@@ -125,12 +126,12 @@ export function IndonesianHomepageContent() {
               Tentang
             </Link>
             , atau{' '}
-            <Link
-              href='/id/kontak'
+            <WhatsAppConsultationLink
+              locale='id'
               className='text-foreground underline underline-offset-4 decoration-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
             >
               konsultasikan kebutuhan Anda
-            </Link>
+            </WhatsAppConsultationLink>
             .
           </p>
         </section>

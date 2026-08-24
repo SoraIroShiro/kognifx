@@ -7,12 +7,12 @@ import {
   MarketingProcessTimeline,
   MarketingTagList,
 } from '@/components/marketing/marketing-page-shell';
+import { WhatsAppConsultationLink } from '@/components/marketing/whatsapp-consultation-link';
 import { JsonLd } from '@/components/structured-data/json-ld';
 import { buttonVariants } from '@/components/ui/button';
 import { createMarketingMetadata } from '@/lib/page-metadata';
 import { getPageStructuredData } from '@/lib/structured-data';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 const title = 'About Kognifx — Software, AI & Systems Engineering';
 const description =
@@ -168,15 +168,15 @@ export default function AboutPage() {
       <MarketingCtaPanel
         title='Ready to discuss your project?'
         action={
-          <Link
-            href='/contact'
+          <WhatsAppConsultationLink
+            locale='en'
             className={cn(
               buttonVariants({ size: 'lg' }),
               'inline-flex rounded-full'
             )}
           >
             Talk to Kognifx
-          </Link>
+          </WhatsAppConsultationLink>
         }
       >
         Tell us what you are trying to solve and we can explore the right

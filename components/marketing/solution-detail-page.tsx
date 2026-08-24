@@ -7,6 +7,7 @@ import {
   MarketingSection,
   MarketingTagList,
 } from '@/components/marketing/marketing-page-shell';
+import { WhatsAppConsultationLink } from '@/components/marketing/whatsapp-consultation-link';
 import { SolutionBreadcrumb } from '@/components/marketing/solution-breadcrumb';
 import type { RelatedSolutionLink } from '@/lib/indonesian-solution-routes';
 import { buttonVariants } from '@/components/ui/button';
@@ -35,7 +36,6 @@ type SolutionDetailPageProps = {
   ctaTitle: string;
   ctaDescription: ReactNode;
   ctaLabel: string;
-  ctaHref?: string;
 };
 
 const inlineLinkClass =
@@ -67,7 +67,6 @@ export function SolutionDetailPage({
   ctaTitle,
   ctaDescription,
   ctaLabel,
-  ctaHref = '/id/kontak',
 }: SolutionDetailPageProps) {
   return (
     <MarketingPageShell>
@@ -150,15 +149,15 @@ export function SolutionDetailPage({
       <MarketingCtaPanel
         title={ctaTitle}
         action={
-          <Link
-            href={ctaHref}
+          <WhatsAppConsultationLink
+            locale='id'
             className={cn(
               buttonVariants({ size: 'lg' }),
               'inline-flex rounded-full'
             )}
           >
             {ctaLabel}
-          </Link>
+          </WhatsAppConsultationLink>
         }
       >
         {ctaDescription}

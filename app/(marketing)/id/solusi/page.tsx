@@ -5,12 +5,12 @@ import {
   SolutionsCategoryGrid,
   type SolutionGroup,
 } from '@/components/marketing/marketing-page-shell';
+import { WhatsAppConsultationLink } from '@/components/marketing/whatsapp-consultation-link';
 import { JsonLd } from '@/components/structured-data/json-ld';
 import { buttonVariants } from '@/components/ui/button';
 import { createMarketingMetadata } from '@/lib/page-metadata';
 import { getPageStructuredData } from '@/lib/structured-data';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 const title = 'Solusi Software Custom, AI & Sistem Bisnis | Kognifx';
 const description =
@@ -172,15 +172,15 @@ export default function SolusiPage() {
       <MarketingCtaPanel
         title='Belum menemukan sistem yang Anda butuhkan?'
         action={
-          <Link
-            href='/id/kontak'
+          <WhatsAppConsultationLink
+            locale='id'
             className={cn(
               buttonVariants({ size: 'lg' }),
               'inline-flex rounded-full'
             )}
           >
             Konsultasikan Kebutuhan Anda
-          </Link>
+          </WhatsAppConsultationLink>
         }
       >
         Biasanya di situlah custom software dimulai: ketika kebutuhan tidak

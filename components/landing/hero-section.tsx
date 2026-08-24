@@ -2,6 +2,7 @@
 
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { SplineFrame } from '@/components/landing/spline-frame';
+import { WhatsAppConsultationLink } from '@/components/marketing/whatsapp-consultation-link';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -39,15 +40,15 @@ export default function HeroSection() {
         </p>
 
         <div className='pointer-events-auto relative z-20 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4'>
-          <Link
-            href='/contact'
+          <WhatsAppConsultationLink
+            locale='en'
             className={cn(
               buttonVariants({ size: 'lg' }),
               'rounded-full px-6'
             )}
           >
             Discuss Your Project
-          </Link>
+          </WhatsAppConsultationLink>
           <Link
             href='/solutions'
             className={cn(
