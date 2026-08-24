@@ -185,6 +185,24 @@ export default function SoftwareCustomPage() {
             description:
               'Kerangka keputusan build vs buy tanpa mengubah halaman jasa ini menjadi artikel perbandingan.',
           },
+          {
+            label: 'Tahapan Pengembangan Software Custom',
+            href: '/id/insight/tahapan-pengembangan-software-custom',
+            description:
+              'Dari discovery sampai maintenance — termasuk catatan bahwa proyek nyata sering iteratif.',
+          },
+          {
+            label: 'Kapan Bisnis Membutuhkan Software Custom?',
+            href: '/id/insight/kapan-bisnis-butuh-software-custom',
+            description:
+              'Tanda diagnostik kapan custom masuk akal — dan kapan software jadi masih cukup.',
+          },
+          {
+            label: 'Legacy System: Integrasi, Modernisasi, atau Bangun Ulang?',
+            href: '/id/insight/legacy-system-vs-modernisasi',
+            description:
+              'Kerangka keputusan keep / integrate / modernize / rebuild untuk sistem lama.',
+          },
         ]}
         ctaTitle='Butuh software yang mengikuti proses bisnis Anda?'
         ctaDescription='Ceritakan masalah operasional atau ide sistem yang ingin dibangun. Kami bantu menentukan apakah software custom adalah jawaban yang tepat.'

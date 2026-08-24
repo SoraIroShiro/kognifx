@@ -200,6 +200,18 @@ export default function AiAutomationPage() {
             description:
               'Pengantar n8n sebagai tool orkestrasi workflow, bukan halaman jasa n8n.',
           },
+          {
+            label: 'Mengatasi Proses Approval Manual dengan Workflow Digital',
+            href: '/id/insight/mengatasi-proses-approval-manual',
+            description:
+              'Bottleneck approval, routing, audit trail, dan kapan otomasi sederhana sudah cukup.',
+          },
+          {
+            label: 'Cara Mengotomatisasi Proses Bisnis yang Berulang',
+            href: '/id/insight/otomatisasi-proses-bisnis-berulang',
+            description:
+              'Mengenali proses berulang, rule-based vs AI, dan kapan tidak perlu diotomatisasi.',
+          },
         ]}
         ctaTitle='Ingin mengevaluasi peluang automation?'
         ctaDescription='Ceritakan proses manual atau workflow yang ingin disederhanakan. Kami bantu menilai apakah AI automation, workflow tool, atau pendekatan lain yang paling masuk akal.'

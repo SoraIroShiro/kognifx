@@ -181,6 +181,12 @@ export default function ErpCustomPage() {
             description:
               'Kerangka keputusan antara ERP paket dan ERP yang menyesuaikan proses bisnis.',
           },
+          {
+            label: 'Tanda Excel Tidak Lagi Cukup untuk Operasional Bisnis',
+            href: '/id/insight/tanda-excel-tidak-lagi-cukup',
+            description:
+              'Kapan spreadsheet masih tepat, dan kapan operasional butuh sistem yang lebih terstruktur.',
+          },
         ]}
         ctaTitle='Evaluasi kebutuhan ERP perusahaan Anda'
         ctaDescription='Ceritakan proses operasional yang ingin disatukan. Kami bantu menilai apakah ERP custom, perluasan sistem existing, atau pendekatan modular bertahap yang paling tepat.'

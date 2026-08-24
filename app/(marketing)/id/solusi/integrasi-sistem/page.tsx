@@ -196,6 +196,18 @@ export default function IntegrasiSistemPage() {
             description:
               'Mengapa API membantu sinkronisasi data, otomasi, dan koneksi antar aplikasi.',
           },
+          {
+            label: 'Cara Mengatasi Data Bisnis yang Tersebar',
+            href: '/id/insight/cara-mengatasi-data-bisnis-tersebar',
+            description:
+              'Silo data, duplikasi, dan pilihan antara integrasi vs sentralisasi.',
+          },
+          {
+            label: 'Kapan Sistem Bisnis Perlu Diintegrasikan?',
+            href: '/id/insight/kapan-sistem-perlu-diintegrasikan',
+            description:
+              'Tanda diagnostik kapan integrasi lebih masuk akal daripada rebuild.',
+          },
         ]}
         ctaTitle='Sistem perusahaan perlu disatukan?'
         ctaDescription='Ceritakan aplikasi, data, dan workflow yang saat ini terputus. Kami bantu menilai pendekatan integrasi yang paling realistis.'

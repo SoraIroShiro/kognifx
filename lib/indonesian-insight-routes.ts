@@ -4,6 +4,7 @@ export const indonesianInsightHubPath = '/id/insight' as const;
 
 export type InsightCategory =
   | 'Software Custom'
+  | 'Software House & Development'
   | 'AI & Automation'
   | 'ERP & Enterprise Systems'
   | 'CRM & Customer Systems'
@@ -12,6 +13,7 @@ export type InsightCategory =
   | 'Commerce & Marketplace'
   | 'SaaS & Platforms'
   | 'Integrasi Sistem & API'
+  | 'Business Process & Modernization'
   | 'IoT';
 
 export type IndonesianInsightArticle = {
@@ -314,6 +316,161 @@ export const indonesianInsightArticles: IndonesianInsightArticle[] = [
     ],
   },
   {
+    path: '/id/insight/apa-itu-software-house',
+    title: 'Apa Itu Software House? Layanan, Cara Kerja & Perannya | Kognifx',
+    h1: 'Apa Itu Software House?',
+    description:
+      'Pelajari apa itu software house, layanan yang biasanya dikerjakan, cara kerja proyek software, dan kapan bisnis membutuhkan partner pengembangan teknologi.',
+    shortDescription:
+      'Pengertian software house, jenis pekerjaan, cara kerja proyek, dan kapan dibutuhkan.',
+    category: 'Software House & Development',
+    commercialParent: '/id/solusi/software-custom',
+    relatedArticlePaths: [
+      '/id/insight/cara-memilih-software-house',
+      '/id/insight/tahapan-pengembangan-software-custom',
+    ],
+  },
+  {
+    path: '/id/insight/cara-memilih-software-house',
+    title: 'Cara Memilih Software House untuk Proyek Bisnis | Kognifx',
+    h1: 'Cara Memilih Software House untuk Proyek Bisnis',
+    description:
+      'Panduan memilih software house berdasarkan pemahaman masalah, kemampuan teknis, komunikasi, proses kerja, maintenance, dan kebutuhan integrasi.',
+    shortDescription:
+      'Kerangka evaluasi partner pengembangan: masalah, proses, dokumentasi, dan red flags.',
+    category: 'Software House & Development',
+    commercialParent: '/id/solusi/software-custom',
+    relatedArticlePaths: [
+      '/id/insight/apa-itu-software-house',
+      '/id/insight/tahapan-pengembangan-software-custom',
+    ],
+  },
+  {
+    path: '/id/insight/tahapan-pengembangan-software-custom',
+    title:
+      'Tahapan Pengembangan Software Custom dari Analisis hingga Deploy | Kognifx',
+    h1: 'Tahapan Pengembangan Software Custom',
+    description:
+      'Pelajari tahapan umum pengembangan software custom: discovery, requirement, desain, development, testing, deployment, hingga maintenance.',
+    shortDescription:
+      'Dari discovery sampai maintenance — termasuk catatan bahwa proyek nyata sering iteratif.',
+    category: 'Software House & Development',
+    commercialParent: '/id/solusi/software-custom',
+    relatedArticlePaths: [
+      '/id/insight/apa-itu-software-house',
+      '/id/insight/kapan-bisnis-butuh-software-custom',
+    ],
+  },
+  {
+    path: '/id/insight/kapan-bisnis-butuh-software-custom',
+    title: 'Kapan Bisnis Membutuhkan Software Custom? Kenali Tandanya | Kognifx',
+    h1: 'Kapan Bisnis Membutuhkan Software Custom?',
+    description:
+      'Kenali tanda bisnis mulai membutuhkan software custom, mulai dari workflow unik, data tersebar, integrasi sulit, hingga proses manual yang tidak lagi efisien.',
+    shortDescription:
+      'Tanda diagnostik kapan custom masuk akal — dan kapan software jadi masih cukup.',
+    category: 'Software House & Development',
+    commercialParent: '/id/solusi/software-custom',
+    relatedArticlePaths: [
+      '/id/insight/tahapan-pengembangan-software-custom',
+      '/id/insight/tanda-excel-tidak-lagi-cukup',
+      '/id/insight/kapan-sistem-perlu-diintegrasikan',
+    ],
+  },
+  {
+    path: '/id/insight/tanda-excel-tidak-lagi-cukup',
+    title: 'Tanda Excel Tidak Lagi Cukup untuk Operasional Bisnis | Kognifx',
+    h1: 'Tanda Excel Tidak Lagi Cukup untuk Operasional Bisnis',
+    description:
+      'Kenali kapan spreadsheet mulai menjadi bottleneck: data ganda, akses banyak pengguna, approval, audit trail, integrasi, dan reporting yang semakin kompleks.',
+    shortDescription:
+      'Kapan spreadsheet masih tepat, dan kapan operasional butuh sistem yang lebih terstruktur.',
+    category: 'Business Process & Modernization',
+    commercialParent: '/id/solusi/software-custom',
+    relatedArticlePaths: [
+      '/id/insight/kapan-bisnis-butuh-software-custom',
+      '/id/insight/cara-mengatasi-data-bisnis-tersebar',
+      '/id/insight/mengatasi-proses-approval-manual',
+    ],
+  },
+  {
+    path: '/id/insight/cara-mengatasi-data-bisnis-tersebar',
+    title: 'Cara Mengatasi Data Bisnis yang Tersebar di Banyak Sistem | Kognifx',
+    h1: 'Cara Mengatasi Data Bisnis yang Tersebar',
+    description:
+      'Pelajari penyebab data bisnis tersebar, dampaknya pada operasional, serta pendekatan seperti integrasi, sinkronisasi, dan sistem data terpusat.',
+    shortDescription:
+      'Silo data, duplikasi, dan pilihan antara integrasi vs sentralisasi.',
+    category: 'Business Process & Modernization',
+    commercialParent: '/id/solusi/integrasi-sistem',
+    relatedArticlePaths: [
+      '/id/insight/tanda-excel-tidak-lagi-cukup',
+      '/id/insight/kapan-sistem-perlu-diintegrasikan',
+      '/id/insight/apa-itu-system-integration',
+    ],
+  },
+  {
+    path: '/id/insight/mengatasi-proses-approval-manual',
+    title: 'Mengatasi Proses Approval Manual dengan Workflow Digital | Kognifx',
+    h1: 'Mengatasi Proses Approval Manual dengan Workflow Digital',
+    description:
+      'Pelajari masalah approval manual dan bagaimana workflow digital membantu routing persetujuan, status, audit trail, notifikasi, dan integrasi proses.',
+    shortDescription:
+      'Bottleneck approval, routing, audit trail, dan kapan otomasi sederhana sudah cukup.',
+    category: 'Business Process & Modernization',
+    commercialParent: '/id/solusi/ai-automation',
+    relatedArticlePaths: [
+      '/id/insight/otomatisasi-proses-bisnis-berulang',
+      '/id/insight/tanda-excel-tidak-lagi-cukup',
+    ],
+  },
+  {
+    path: '/id/insight/otomatisasi-proses-bisnis-berulang',
+    title: 'Cara Mengotomatisasi Proses Bisnis yang Berulang | Kognifx',
+    h1: 'Cara Mengotomatisasi Proses Bisnis yang Berulang',
+    description:
+      'Pelajari cara mengenali proses bisnis yang cocok diotomatisasi, memilih rule-based automation atau AI, dan menghubungkan workflow antar sistem.',
+    shortDescription:
+      'Mengenali proses berulang, rule-based vs AI, dan kapan tidak perlu diotomatisasi.',
+    category: 'Business Process & Modernization',
+    commercialParent: '/id/solusi/ai-automation',
+    relatedArticlePaths: [
+      '/id/insight/apa-itu-ai-automation',
+      '/id/insight/apa-itu-n8n-untuk-bisnis',
+    ],
+  },
+  {
+    path: '/id/insight/kapan-sistem-perlu-diintegrasikan',
+    title: 'Kapan Sistem Bisnis Perlu Diintegrasikan? Kenali Tandanya | Kognifx',
+    h1: 'Kapan Sistem Bisnis Perlu Diintegrasikan?',
+    description:
+      'Kenali tanda sistem bisnis perlu diintegrasikan, seperti input data berulang, data tidak sinkron, proses terputus, dan reporting lintas aplikasi yang sulit.',
+    shortDescription:
+      'Tanda diagnostik kapan integrasi lebih masuk akal daripada rebuild.',
+    category: 'Business Process & Modernization',
+    commercialParent: '/id/solusi/integrasi-sistem',
+    relatedArticlePaths: [
+      '/id/insight/apa-itu-system-integration',
+      '/id/insight/manfaat-integrasi-api',
+      '/id/insight/cara-mengatasi-data-bisnis-tersebar',
+    ],
+  },
+  {
+    path: '/id/insight/legacy-system-vs-modernisasi',
+    title: 'Legacy System: Integrasi, Modernisasi, atau Bangun Ulang? | Kognifx',
+    h1: 'Legacy System: Integrasi, Modernisasi, atau Bangun Ulang?',
+    description:
+      'Pelajari pilihan untuk legacy system: mempertahankan, mengintegrasikan, memodernisasi, atau membangun ulang berdasarkan risiko, kebutuhan, dan ketergantungan sistem.',
+    shortDescription:
+      'Kerangka keputusan keep / integrate / modernize / rebuild untuk sistem lama.',
+    category: 'Business Process & Modernization',
+    commercialParent: '/id/solusi/software-custom',
+    relatedArticlePaths: [
+      '/id/insight/kapan-sistem-perlu-diintegrasikan',
+      '/id/insight/kapan-bisnis-butuh-software-custom',
+    ],
+  },
+  {
     path: '/id/insight/apa-itu-iot-untuk-bisnis',
     title: 'Apa Itu IoT? Contoh dan Manfaat untuk Bisnis & Industri | Kognifx',
     h1: 'Apa Itu IoT?',
@@ -356,6 +513,7 @@ export function getRelatedInsightArticles(path: string) {
 
 export const insightCategoryOrder: InsightCategory[] = [
   'Software Custom',
+  'Software House & Development',
   'AI & Automation',
   'ERP & Enterprise Systems',
   'CRM & Customer Systems',
@@ -364,5 +522,6 @@ export const insightCategoryOrder: InsightCategory[] = [
   'Commerce & Marketplace',
   'SaaS & Platforms',
   'Integrasi Sistem & API',
+  'Business Process & Modernization',
   'IoT',
 ];
