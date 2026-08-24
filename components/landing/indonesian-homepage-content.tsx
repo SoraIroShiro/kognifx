@@ -24,7 +24,7 @@ export function IndonesianHomepageContent() {
         </div>
 
         <div className='relative z-10 mx-auto max-w-5xl pt-16 sm:pt-20'>
-          <h1 className='bg-gradient-to-br dark:from-white from-black from-30% dark:to-white/40 to-black/40 bg-clip-text py-6 text-4xl font-medium leading-none tracking-tighter text-transparent text-balance sm:text-5xl md:text-6xl lg:text-7xl'>
+          <h1 className='overflow-visible bg-gradient-to-br dark:from-white from-black from-30% dark:to-white/40 to-black/40 bg-clip-text py-6 text-4xl font-medium leading-[1.15] tracking-tighter text-transparent text-balance sm:text-5xl md:text-6xl lg:text-7xl'>
             Mengubah Kompleksitas
             <br className='hidden md:block' />
             Menjadi Sistem yang Bekerja.

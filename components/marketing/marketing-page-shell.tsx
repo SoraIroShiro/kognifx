@@ -32,7 +32,7 @@ export function MarketingPageHero({
           {eyebrow}
         </p>
       ) : null}
-      <h1 className='bg-gradient-to-br from-foreground from-30% to-foreground/45 bg-clip-text text-4xl font-medium leading-tight tracking-tight text-transparent sm:text-5xl md:text-6xl'>
+      <h1 className='overflow-visible bg-gradient-to-br from-foreground from-30% to-foreground/45 bg-clip-text pb-[0.18em] text-4xl font-medium leading-[1.2] tracking-tight text-transparent sm:text-5xl md:text-6xl'>
         {title}
       </h1>
       <p className='mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground'>
@@ -72,7 +72,7 @@ export function MarketingSection({
 }) {
   return (
     <section className={cn('mt-16', className)}>
-      <h2 className='text-2xl font-medium tracking-tight sm:text-3xl'>
+      <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
         {title}
       </h2>
       <div className='mt-5 max-w-3xl space-y-4 leading-relaxed text-muted-foreground'>
@@ -161,7 +161,7 @@ export function MarketingCtaPanel({
 }) {
   return (
     <section className='mt-20 overflow-hidden rounded-3xl border border-border/70 bg-[radial-gradient(circle_at_top_left,rgba(255,130,92,0.08),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(118,225,255,0.08),transparent_35%)] p-8 md:p-10'>
-      <h2 className='max-w-2xl text-2xl font-medium tracking-tight sm:text-3xl'>
+      <h2 className='max-w-2xl text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
         {title}
       </h2>
       <p className='mt-4 max-w-2xl text-muted-foreground'>{children}</p>
