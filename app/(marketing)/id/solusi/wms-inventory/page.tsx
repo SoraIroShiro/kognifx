@@ -167,6 +167,20 @@ export default function WmsInventoryPage() {
               'Monitoring perangkat atau telemetry yang mendukung operasional gudang.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu WMS?',
+            href: '/id/insight/apa-itu-wms',
+            description:
+              'Warehouse management system: receiving, lokasi, picking, dan multi-gudang.',
+          },
+          {
+            label: 'WMS vs Inventory Management System',
+            href: '/id/insight/wms-vs-inventory-management-system',
+            description:
+              'Perbedaan fokus quantity vs operasional gudang, dan kapan masing-masing cukup.',
+          },
+        ]}
         ctaTitle='Stok dan gudang masih sulit dilacak?'
         ctaDescription='Ceritakan alur barang masuk–keluar, jumlah lokasi, dan di mana selisih stok paling sering muncul. Kami bantu menilai apakah inventory sederhana atau WMS yang lebih sesuai.'
         ctaLabel='Konsultasikan Sistem Gudang & Inventory Anda'

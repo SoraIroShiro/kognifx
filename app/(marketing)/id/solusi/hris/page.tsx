@@ -163,6 +163,20 @@ export default function HrisPage() {
               'Pengingat, klasifikasi dokumen, atau workflow HR yang berulang.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu HRIS dan HRMS?',
+            href: '/id/insight/apa-itu-hris-dan-hrms',
+            description:
+              'Dasar HRIS/HRMS: data karyawan, absensi, cuti, payroll, dan workflow HR.',
+          },
+          {
+            label: 'HRIS vs HRMS',
+            href: '/id/insight/hris-vs-hrms',
+            description:
+              'Perbedaan istilah, overlap modul, dan cara memilih dari kebutuhan workflow.',
+          },
+        ]}
         ctaTitle='Proses HR masih bergantung pada file terpisah?'
         ctaDescription='Ceritakan alur absensi, cuti, data karyawan, atau payroll yang ingin dirapikan. Kami bantu menilai lingkup HRIS/HRMS yang realistis — tanpa menjanjikan kepatuhan hukum otomatis.'
         ctaLabel='Diskusikan Kebutuhan HRIS Anda'

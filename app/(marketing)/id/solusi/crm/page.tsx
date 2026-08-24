@@ -165,6 +165,20 @@ export default function CrmPage() {
               'Jika penjualan perlu terhubung ke stok, invoice, dan operasional.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu CRM?',
+            href: '/id/insight/apa-itu-crm',
+            description:
+              'Pengertian CRM, pipeline sales, data pelanggan, dan kapan sistem mulai dibutuhkan.',
+          },
+          {
+            label: 'CRM Custom vs CRM Siap Pakai',
+            href: '/id/insight/crm-custom-vs-crm-siap-pakai',
+            description:
+              'Kerangka build vs buy untuk CRM: pipeline, integrasi, dan kontrol data.',
+          },
+        ]}
         ctaTitle='Proses penjualan masih sulit dilacak?'
         ctaDescription='Ceritakan bagaimana lead masuk, bagaimana follow-up dilakukan, dan data pelanggan mana yang paling sering hilang. Kami bantu menilai apakah CRM custom adalah langkah yang tepat.'
         ctaLabel='Konsultasikan Sistem CRM Anda'

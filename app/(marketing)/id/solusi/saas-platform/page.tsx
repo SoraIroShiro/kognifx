@@ -171,6 +171,20 @@ export default function SaasPlatformPage() {
               'Jika produk berpusat pada katalog, order, dan transaksi jual-beli.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'Apa Itu SaaS?',
+            href: '/id/insight/apa-itu-saas',
+            description:
+              'Dasar SaaS: subscription, multi-tenant, peran akun, dan trade-off modelnya.',
+          },
+          {
+            label: 'SaaS Custom vs Platform Siap Pakai',
+            href: '/id/insight/saas-custom-vs-platform-siap-pakai',
+            description:
+              'Kapan membangun produk SaaS sendiri vs memakai platform jadi.',
+          },
+        ]}
         ctaTitle='Punya ide produk yang perlu arsitektur SaaS?'
         ctaDescription='Ceritakan siapa penggunanya, bagaimana akun dipisah, dan model langganan yang diinginkan. Kami bantu menilai lingkup platform multi-tenant yang masuk akal — tanpa janji skala atau uptime di luar kesepakatan proyek.'
         ctaLabel='Konsultasikan Ide SaaS Anda'

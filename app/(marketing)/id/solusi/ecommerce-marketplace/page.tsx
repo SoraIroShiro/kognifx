@@ -166,6 +166,20 @@ export default function EcommerceMarketplacePage() {
               'Notifikasi, klasifikasi order, atau otomasi operasional toko.',
           },
         ]}
+        relatedInsights={[
+          {
+            label: 'E-Commerce Custom vs Platform Siap Pakai',
+            href: '/id/insight/ecommerce-custom-vs-platform-siap-pakai',
+            description:
+              'Build vs buy untuk toko online: workflow, integrasi, dan kerangka keputusan.',
+          },
+          {
+            label: 'Apa Itu Marketplace Multi-Vendor?',
+            href: '/id/insight/apa-itu-marketplace-multi-vendor',
+            description:
+              'Komponen marketplace multi-vendor: seller, katalog, order, dan moderasi.',
+          },
+        ]}
         ctaTitle='Butuh platform jual-beli yang mengikuti proses bisnis?'
         ctaDescription='Ceritakan model B2B, B2C, atau multi-vendor yang ingin dijalankan, plus aturan katalog dan order yang tidak muat di template. Kami bantu menilai lingkup yang realistis.'
         ctaLabel='Diskusikan Platform Commerce Anda'
