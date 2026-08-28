@@ -5,7 +5,7 @@ import { getPageStructuredData } from '@/lib/structured-data';
 
 const title = 'Kognifx — Software House & Solusi AI untuk Bisnis';
 const description =
-  'Kognifx membantu bisnis membangun software custom, sistem enterprise, AI agent, automation, dan IoT untuk menyelesaikan kebutuhan operasional hingga masalah bisnis yang kompleks.';
+  'Kognifx membantu bisnis membangun software custom, sistem enterprise, AI agent, automation, dan integrasi sistem untuk menyelesaikan kebutuhan operasional hingga masalah bisnis yang kompleks.';
 
 export const metadata = createMarketingMetadata({
   path: '/id',

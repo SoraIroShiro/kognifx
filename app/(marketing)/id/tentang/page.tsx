@@ -29,7 +29,6 @@ const capabilityTags = [
   'Sistem Enterprise',
   'AI & Automation',
   'Web & Commerce',
-  'IoT',
   'System Integration',
 ];
 
@@ -109,7 +108,7 @@ export default function TentangPage() {
           </p>
           <p>
             Landing page, dashboard internal, perluasan ERP, layer automation,
-            maupun sistem IoT bisa menjadi jawaban yang tepat, asal masalahnya
+            maupun integrasi antar sistem bisa menjadi jawaban yang tepat, asal masalahnya
             sudah dipahami dengan baik.
           </p>
         </MarketingInsightCard>

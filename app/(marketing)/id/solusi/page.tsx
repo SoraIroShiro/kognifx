@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 
 const title = 'Solusi Software Custom, AI & Sistem Bisnis | Kognifx';
 const description =
-  'Temukan solusi Kognifx untuk software custom, ERP, sistem perusahaan, AI automation, e-commerce, platform digital, IoT, dan integrasi sistem.';
+  'Temukan solusi Kognifx untuk software custom, ERP, sistem perusahaan, AI automation, e-commerce, platform digital, dan integrasi sistem.';
 
 export const metadata = createMarketingMetadata({
   path: '/id/solusi',
@@ -127,20 +127,18 @@ const solutionGroups: SolutionGroup[] = [
     ],
   },
   {
-    title: 'IoT & Integration',
+    title: 'Integrasi Sistem',
     description:
-      'Sistem terhubung dan integrasi yang menyatukan perangkat, API, data, dan tools operasional dalam satu alur kerja.',
+      'Integrasi yang menyatukan API, data, dan tools operasional dalam satu alur kerja.',
     detailLinks: [
-      { label: 'IoT', href: '/id/solusi/iot' },
       { label: 'Integrasi Sistem', href: '/id/solusi/integrasi-sistem' },
     ],
     items: [
-      'IoT Systems',
-      'Device Integration',
-      'Monitoring Systems',
       'API Integration',
       'Data Integration',
       'System-to-System Automation',
+      'Middleware',
+      'Legacy Integration',
     ],
   },
 ];

@@ -9,7 +9,7 @@ const capabilityAreas = [
   'AI & Automation',
   'Digital Commerce',
   'Digital Platforms',
-  'IoT & Integration',
+  'Systems Integration',
 ];
 
 export function HomepageSeoSections() {
@@ -22,8 +22,8 @@ export function HomepageSeoSections() {
         <p className='mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground'>
           Kognifx designs and builds systems around real operational needs.
           That can include custom software, enterprise systems, AI and
-          automation, digital commerce, digital platforms, and IoT and
-          integration work, chosen because they fit the problem, not because
+          automation, digital commerce, digital platforms, and systems
+          integration, chosen because they fit the problem, not because
           they are the default offering.
         </p>
         <ul className='mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>

@@ -20,7 +20,7 @@ import Link from 'next/link';
 
 const title = 'Insight Software, AI & Automation untuk Bisnis | Kognifx';
 const description =
-  'Pelajari software custom, AI automation, ERP, integrasi sistem, API, IoT, dan teknologi bisnis melalui insight praktis dari Kognifx.';
+  'Pelajari software custom, AI automation, ERP, integrasi sistem, API, dan teknologi bisnis melalui insight praktis dari Kognifx.';
 
 export const metadata = createUnpairedIndonesianMetadata({
   path: indonesianInsightHubPath,
@@ -50,7 +50,7 @@ export default function InsightHubPage() {
           title='Insight Software, AI & Teknologi Bisnis'
         >
           Kognifx menulis materi praktis tentang software, AI, automation,
-          sistem enterprise, integrasi, dan IoT. Tujuannya membantu tim
+          sistem enterprise, dan integrasi. Tujuannya membantu tim
           memahami konsep dan trade-off sebelum memutuskan pendekatan teknis —
           bukan menggantikan halaman solusi.
         </MarketingPageHero>

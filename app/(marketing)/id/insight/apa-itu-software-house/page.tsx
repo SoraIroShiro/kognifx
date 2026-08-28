@@ -67,15 +67,14 @@ export default function ApaItuSoftwareHousePage() {
             ),
           },
           {
-            title: 'Contoh area: custom, web, mobile, enterprise, AI, IoT',
+            title: 'Contoh area: custom, web, mobile, enterprise, AI',
             children: (
               <>
                 <p>
                   Contoh pekerjaan yang sering muncul: software custom dan
                   aplikasi web, mobile bila dibutuhkan, sistem enterprise,
-                  integrasi antar aplikasi, otomasi/AI, atau lapisan software di
-                  sekitar perangkat IoT. Ini contoh domain — bukan daftar
-                  jaminan kemampuan setiap vendor.
+                  integrasi antar aplikasi, dan otomasi/AI. Ini contoh domain —
+                  bukan daftar jaminan kemampuan setiap vendor.
                 </p>
               </>
             ),

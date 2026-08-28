@@ -29,7 +29,6 @@ const capabilityTags = [
   'Enterprise Systems',
   'AI & Automation',
   'Web & Commerce',
-  'IoT',
   'System Integration',
 ];
 
@@ -108,7 +107,7 @@ export default function AboutPage() {
           </p>
           <p>
             A landing page, an internal dashboard, an ERP extension, a workflow
-            automation layer, and a connected IoT setup can all be valid
+            automation layer, and systems integration can all be valid
             answers, but only after the problem is understood clearly.
           </p>
         </MarketingInsightCard>

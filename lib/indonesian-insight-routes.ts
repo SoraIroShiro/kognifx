@@ -13,8 +13,7 @@ export type InsightCategory =
   | 'Commerce & Marketplace'
   | 'SaaS & Platforms'
   | 'Integrasi Sistem & API'
-  | 'Business Process & Modernization'
-  | 'IoT';
+  | 'Business Process & Modernization';
 
 export type IndonesianInsightArticle = {
   path: string;
@@ -470,21 +469,6 @@ export const indonesianInsightArticles: IndonesianInsightArticle[] = [
       '/id/insight/kapan-bisnis-butuh-software-custom',
     ],
   },
-  {
-    path: '/id/insight/apa-itu-iot-untuk-bisnis',
-    title: 'Apa Itu IoT? Contoh dan Manfaat untuk Bisnis & Industri | Kognifx',
-    h1: 'Apa Itu IoT?',
-    description:
-      'Pelajari apa itu IoT, cara perangkat mengirim data ke sistem, contoh monitoring dan automation, serta manfaat IoT untuk bisnis dan industri.',
-    shortDescription:
-      'Dasar IoT untuk bisnis: perangkat, telemetry, dashboard, dan integrasi ke software.',
-    category: 'IoT',
-    commercialParent: '/id/solusi/iot',
-    relatedArticlePaths: [
-      '/id/insight/apa-itu-system-integration',
-      '/id/insight/apa-itu-ai-automation',
-    ],
-  },
 ];
 
 export const indonesianInsightPaths = [
@@ -523,5 +507,4 @@ export const insightCategoryOrder: InsightCategory[] = [
   'SaaS & Platforms',
   'Integrasi Sistem & API',
   'Business Process & Modernization',
-  'IoT',
 ];

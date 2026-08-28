@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 
 const title = 'Software, AI & Technology Solutions | Kognifx';
 const description =
-  'Explore Kognifx solutions across custom software, enterprise systems, AI automation, digital commerce, platforms, IoT, and systems integration.';
+  'Explore Kognifx solutions across custom software, enterprise systems, AI automation, digital commerce, platforms, and systems integration.';
 
 export const metadata = createMarketingMetadata({
   path: '/solutions',
@@ -103,16 +103,15 @@ const solutionGroups: SolutionGroup[] = [
     ],
   },
   {
-    title: 'IoT & Integration',
+    title: 'Systems Integration',
     description:
-      'Connected systems and integration work that links devices, APIs, data sources, and operational tools into one flow.',
+      'Integration work that links APIs, data sources, and operational tools into one flow.',
     items: [
-      'IoT Systems',
-      'Device Integration',
-      'Monitoring Systems',
       'API Integration',
       'Data Integration',
       'System-to-System Automation',
+      'Middleware',
+      'Legacy Integration',
     ],
   },
 ];

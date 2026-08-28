@@ -9,7 +9,7 @@ const capabilityAreas = [
   'AI & Automation',
   'Digital Commerce',
   'Digital Platforms',
-  'IoT & Integration',
+  'Integrasi Sistem',
 ];
 
 export function IndonesianHomepageContent() {
@@ -33,7 +33,7 @@ export function IndonesianHomepageContent() {
           <p className='mx-auto mb-10 max-w-3xl text-lg tracking-tight text-gray-400 md:text-xl text-balance'>
             Kognifx adalah software house dan technology partner berbasis AI
             yang membangun software custom, sistem enterprise, automation, AI
-            agent, serta solusi IoT sesuai kebutuhan bisnis.
+            agent, serta integrasi sistem sesuai kebutuhan bisnis.
           </p>
 
           <div className='flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4'>
@@ -65,7 +65,7 @@ export function IndonesianHomepageContent() {
             Kognifx merancang dan membangun sistem berdasarkan kebutuhan
             operasional yang sebenarnya. Solusinya bisa berupa custom software,
             sistem enterprise, AI & automation, digital commerce, digital
-            platforms, hingga IoT & integration, dipilih karena sesuai masalah,
+            platforms, hingga integrasi sistem, dipilih karena sesuai masalah,
             bukan karena menjadi penawaran bawaan.
           </p>
           <ul className='mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
@@ -113,7 +113,7 @@ export function IndonesianHomepageContent() {
           </h2>
           <p className='mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground'>
             Kadang bisnis membutuhkan website. Kadang ERP. Kadang automation
-            atau IoT. Kadang tidak ada produk siap pakai yang benar-benar
+            atau integrasi antar sistem. Kadang tidak ada produk siap pakai yang benar-benar
             cocok dengan masalah yang dihadapi.
           </p>
           <p className='mt-4 max-w-3xl leading-relaxed text-muted-foreground'>

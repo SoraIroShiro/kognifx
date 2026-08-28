@@ -142,10 +142,6 @@ export default function IntegrasiSistemPage() {
                   <SolutionInlineLink href='/id/solusi/ai-automation'>
                     AI automation
                   </SolutionInlineLink>
-                  . Untuk data dari perangkat fisik, lihat{' '}
-                  <SolutionInlineLink href='/id/solusi/iot'>
-                    IoT
-                  </SolutionInlineLink>
                   .
                 </p>
               </>
@@ -176,11 +172,6 @@ export default function IntegrasiSistemPage() {
             label: 'ERP Custom',
             href: '/id/solusi/erp-custom',
             description: 'Sistem operasional yang menjadi pusat integrasi.',
-          },
-          {
-            label: 'IoT',
-            href: '/id/solusi/iot',
-            description: 'Integrasi data perangkat ke sistem bisnis.',
           },
         ]}
         relatedInsights={[

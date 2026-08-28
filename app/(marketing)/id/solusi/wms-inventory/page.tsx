@@ -97,10 +97,6 @@ export default function WmsInventoryPage() {
                   <SolutionInlineLink href='/id/solusi/integrasi-sistem'>
                     integrasi sistem
                   </SolutionInlineLink>
-                  . Jika perangkat lapangan atau sensor relevan, lihat{' '}
-                  <SolutionInlineLink href='/id/solusi/iot'>
-                    IoT
-                  </SolutionInlineLink>
                   .
                 </p>
               </>
@@ -159,12 +155,6 @@ export default function WmsInventoryPage() {
             href: '/id/solusi/integrasi-sistem',
             description:
               'Menghubungkan WMS dengan ERP, POS, marketplace, atau procurement.',
-          },
-          {
-            label: 'IoT',
-            href: '/id/solusi/iot',
-            description:
-              'Monitoring perangkat atau telemetry yang mendukung operasional gudang.',
           },
         ]}
         relatedInsights={[

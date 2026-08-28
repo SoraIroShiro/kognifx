@@ -36,7 +36,7 @@ export default function HeroSection() {
         <p className='mb-12 text-lg tracking-tight text-gray-400 md:text-xl text-balance'>
           Kognifx is an AI-first software house and technology partner that
           builds custom software, enterprise systems, automation, AI agents,
-          and IoT solutions for real-world business problems.
+          and integration solutions for real-world business problems.
         </p>
 
         <div className='pointer-events-auto relative z-20 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4'>
