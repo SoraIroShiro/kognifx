@@ -16,7 +16,17 @@ export function SiteFooterNav() {
       aria-label={locale === 'id' ? 'Tautan footer' : 'Footer links'}
       className='pointer-events-auto'
     >
-      <ul className='flex space-x-5 sm:justify-center sm:mt-0'>
+      <ul className='flex items-center gap-4 sm:justify-center sm:mt-0'>
+        {locale === 'id' ? (
+          <li>
+            <Link
+              href='/id/studi-kasus'
+              className='text-[12px] text-gray-500 transition-colors hover:text-gray-900 dark:hover:text-gray-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+            >
+              Studi Kasus
+            </Link>
+          </li>
+        ) : null}
         <li>
           <Link
             href={contactHref}

@@ -176,6 +176,12 @@ export default function IntegrasiSistemPage() {
         ]}
         relatedInsights={[
           {
+            label: 'Studi Kasus Pengembangan Platform Digital',
+            href: '/id/studi-kasus',
+            description:
+              'Pelajari studi kasus platform enterprise terintegrasi yang menyatukan CRM, commerce, event, dan automation.',
+          },
+          {
             label: 'Apa Itu System Integration?',
             href: '/id/insight/apa-itu-system-integration',
             description:
@@ -192,12 +198,6 @@ export default function IntegrasiSistemPage() {
             href: '/id/insight/cara-mengatasi-data-bisnis-tersebar',
             description:
               'Silo data, duplikasi, dan pilihan antara integrasi vs sentralisasi.',
-          },
-          {
-            label: 'Kapan Sistem Bisnis Perlu Diintegrasikan?',
-            href: '/id/insight/kapan-sistem-perlu-diintegrasikan',
-            description:
-              'Tanda diagnostik kapan integrasi lebih masuk akal daripada rebuild.',
           },
         ]}
         ctaTitle='Sistem perusahaan perlu disatukan?'

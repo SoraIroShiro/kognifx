@@ -174,6 +174,12 @@ export default function SoftwareCustomPage() {
         ]}
         relatedInsights={[
           {
+            label: 'Studi Kasus Pengembangan Platform Digital',
+            href: '/id/studi-kasus',
+            description:
+              'Lihat bagaimana kami membangun platform enterprise custom untuk operasional bisnis yang kompleks.',
+          },
+          {
             label: 'Apa Itu Software Custom?',
             href: '/id/insight/apa-itu-software-custom',
             description:
@@ -196,12 +202,6 @@ export default function SoftwareCustomPage() {
             href: '/id/insight/kapan-bisnis-butuh-software-custom',
             description:
               'Tanda diagnostik kapan custom masuk akal — dan kapan software jadi masih cukup.',
-          },
-          {
-            label: 'Legacy System: Integrasi, Modernisasi, atau Bangun Ulang?',
-            href: '/id/insight/legacy-system-vs-modernisasi',
-            description:
-              'Kerangka keputusan keep / integrate / modernize / rebuild untuk sistem lama.',
           },
         ]}
         ctaTitle='Butuh software yang mengikuti proses bisnis Anda?'

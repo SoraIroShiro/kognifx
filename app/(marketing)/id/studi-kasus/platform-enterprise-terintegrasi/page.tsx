@@ -58,7 +58,7 @@ const overviewItems = [
   },
   {
     label: 'Validasi',
-    value: '120+ early beta users',
+    value: '120+ pengguna pada fase beta testing',
   },
 ];
 
@@ -89,17 +89,17 @@ const approachItems = [
   {
     title: 'Memahami proses bisnis',
     description:
-      'Kami memetakan workflow dan kebutuhan operasional sebelum menetapkan desain sistem.',
+      'Kami memahami alur kerja dan kebutuhan operasional sebelum menentukan struktur platform yang dibangun.',
   },
   {
-    title: 'Rekayasa platform custom',
+    title: 'Pengembangan platform custom',
     description:
-      'Kami membangun di sekitar cara bisnis sudah berjalan, bukan memaksa template produk generik.',
+      'Platform dikembangkan mengikuti proses bisnis yang berjalan, bukan membatasi kebutuhan melalui template yang sudah ada.',
   },
   {
     title: 'Arsitektur enterprise terintegrasi',
     description:
-      'Kami menghubungkan modul bisnis utama dalam satu platform dengan data model dan API yang dipakai bersama.',
+      'Setiap modul dirancang agar dapat berbagi data dan terhubung melalui arsitektur platform yang sama.',
   },
 ];
 
@@ -125,9 +125,9 @@ const capabilityItems = [
       'Konten dan komunikasi dipublikasikan tanpa CMS terpisah yang tidak saling terhubung.',
   },
   {
-    title: 'Automation & AI',
+    title: 'Automation & Intelligent Insights',
     description:
-      'Mengotomasi workflow yang berulang. AI dipakai jika mengurangi review manual atau mempercepat keputusan.',
+      'Workflow otomatis dan fitur AI membantu mengurangi pekerjaan berulang serta memberikan insight berdasarkan data operasional.',
   },
 ];
 
@@ -140,7 +140,7 @@ const impactItems = [
   {
     title: 'Visibilitas operasional',
     description:
-      'Tim bisa melihat aktivitas pelanggan, event, dan transaksi tanpa harus ekspor ke spreadsheet.',
+      'Tim mendapatkan gambaran aktivitas bisnis melalui satu sumber data yang lebih terstruktur.',
   },
   {
     title: 'Proses lebih terstruktur',
@@ -157,11 +157,11 @@ const impactItems = [
 const timelineSteps = [
   {
     title: 'Maret 2026',
-    description: 'Business Discovery',
+    description: 'Discovery & Requirement Mapping',
   },
   {
     title: 'April 2026',
-    description: 'System Architecture & Design',
+    description: 'System Architecture Design',
   },
   {
     title: 'Mei – Juni 2026',
@@ -169,7 +169,7 @@ const timelineSteps = [
   },
   {
     title: 'Juli 2026',
-    description: 'Beta testing dengan 120+ early users',
+    description: 'Beta testing bersama 120+ pengguna',
   },
 ];
 
@@ -190,9 +190,12 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
         eyebrow='Studi Kasus · Enterprise Platform'
         title={study.h1}
       >
-        Kognifx merancang dan membangun platform custom yang menghubungkan CRM,
-        operasional bisnis, commerce, event, dan automation dalam satu sistem,
-        sehingga tim dapat bekerja tanpa berpindah antar tools yang terpisah.
+        Ketika proses bisnis berkembang, kebutuhan akan sistem yang saling
+        terhubung menjadi semakin penting.
+        <br />
+        <br />
+        Kognifx membangun platform enterprise custom yang mengintegrasikan CRM,
+        operasional, commerce, event, automation, dan AI dalam satu ekosistem.
       </MarketingPageHero>
 
       <div className='mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap'>
@@ -248,9 +251,12 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
           Ketika proses inti berjalan di tools yang terpisah
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Seiring organisasi tumbuh, data pelanggan, transaksi, event, dan
-          workflow internal tersebar di tempat yang berbeda. Tim lebih banyak
-          menyelaraskan sistem daripada menjalankan operasional.
+          Saat proses bisnis berkembang, data pelanggan, transaksi, event, dan
+          workflow internal sering berada di sistem yang berbeda.
+        </p>
+        <p className='mt-4 max-w-3xl leading-relaxed text-muted-foreground'>
+          Kondisi ini membuat tim membutuhkan lebih banyak waktu untuk menyatukan
+          informasi sebelum mengambil keputusan.
         </p>
         <MarketingInsightGrid>
           {challengeItems.map((item) => (
@@ -280,18 +286,18 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Perjalanan pelanggan dan operasional
+          Alur bisnis end-to-end dalam satu platform
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Platform mencakup alur dari kontak pertama sampai engagement
-          berkelanjutan: registrasi, transaksi, event, konten, dan follow-up
-          otomatis bila memang membantu.
+          Platform menghubungkan proses dari akuisisi pelanggan, engagement,
+          transaksi, event, hingga automation dalam satu alur yang saling
+          terhubung.
         </p>
         <CaseStudyVisual
           className='mt-8'
           src={IMAGE.journey}
-          alt='Visualisasi perjalanan pelanggan dan operasional di platform'
-          caption='Peta journey: akuisisi, engagement, transaksi, event, dan titik automation.'
+          alt='Visualisasi alur bisnis end-to-end dalam platform enterprise'
+          caption='Alur bisnis yang menghubungkan perjalanan pelanggan, transaksi, event, hingga proses automation dalam satu platform.'
           objectFit='contain'
         />
       </section>
@@ -301,8 +307,13 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
           Arsitektur platform
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          CRM, commerce, event, finance, dan tools internal berada di satu
-          arsitektur, sehingga workflow dan reporting memakai sistem yang sama.
+          CRM, commerce, event, finance, dan kebutuhan operasional internal
+          berjalan dalam satu arsitektur yang sama sehingga data dan workflow
+          dapat digunakan lintas modul.
+        </p>
+        <p className='mt-4 max-w-3xl leading-relaxed text-muted-foreground'>
+          Setiap modul dirancang agar dapat berbagi data melalui sistem dan API
+          yang sama.
         </p>
         <CaseStudyVisual
           className='mt-8'
@@ -315,16 +326,16 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Yang dipakai tim setiap hari
+          Platform operasional untuk aktivitas bisnis harian
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Tim operasional bekerja dari satu sistem untuk CRM, commerce, event,
-          finance, dan automation, tanpa harus berpindah tools sepanjang hari.
+          Antarmuka ini membantu tim melihat aktivitas pelanggan, transaksi,
+          event, dan proses internal melalui satu sistem terpusat.
         </p>
         <CaseStudyVisual
           className='mt-8'
           src={IMAGE.platform}
-          alt='Antarmuka platform enterprise untuk operasional harian'
+          alt='Antarmuka platform enterprise untuk aktivitas bisnis harian'
           caption='Antarmuka operasional utama yang dipakai tim internal.'
         />
       </section>
@@ -356,8 +367,9 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
           Fondasi teknologi
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Kami memakai stack yang sederhana untuk platform berbasis API. Fokusnya
-          adalah delivery yang andal dan arsitektur yang mudah dirawat.
+          Platform dibangun menggunakan teknologi modern berbasis API dengan
+          fokus pada skalabilitas, maintainability, dan pengembangan
+          berkelanjutan.
         </p>
         <dl className='mt-6 grid gap-4 sm:grid-cols-2'>
           {[
@@ -401,7 +413,7 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
           Timeline proyek
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Lima bulan dari discovery sampai beta bersama early users.
+          Lima bulan dari discovery sampai beta bersama pengguna awal.
         </p>
         <MarketingProcessTimeline steps={timelineSteps} />
       </section>
@@ -411,8 +423,8 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
           Dampak bagi bisnis
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Klaim dampak kami sampaikan secara kualitatif. Yang penting adalah
-          perubahan cara kerja setelah go-live, bukan metrik yang dibuat-buat.
+          Klaim dampak kami sampaikan secara kualitatif, bukan metrik yang
+          dibuat-buat.
         </p>
         <MarketingInsightGrid>
           {impactItems.map((item) => (
@@ -475,7 +487,7 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
       </section>
 
       <MarketingCtaPanel
-        title='Operasional kompleks masih jalan di tools yang terpisah?'
+        title='Operasional bisnis masih tersebar di berbagai tools?'
         action={
           <WhatsAppConsultationLink
             locale='id'
@@ -488,8 +500,8 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
           </WhatsAppConsultationLink>
         }
       >
-        Kognifx membangun platform enterprise custom ketika software siap pakai
-        tidak cukup untuk cara operasional bisnis Anda berjalan.
+        Kognifx membantu membangun platform enterprise custom yang sesuai dengan
+        proses bisnis dan kebutuhan operasional Anda.
       </MarketingCtaPanel>
     </MarketingPageShell>
   );

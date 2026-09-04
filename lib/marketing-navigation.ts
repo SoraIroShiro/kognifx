@@ -15,6 +15,7 @@ export const indonesianNavItems: MarketingNavItem[] = [
   { label: 'Solusi', href: '/id/solusi' },
   { label: 'Insight', href: '/id/insight' },
   { label: 'Tentang', href: '/id/tentang' },
+  { label: 'Studi Kasus', href: '/id/studi-kasus' },
   { label: 'Kontak', href: '/id/kontak' },
 ];
 

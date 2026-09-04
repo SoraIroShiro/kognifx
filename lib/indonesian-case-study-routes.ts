@@ -15,12 +15,12 @@ export type IndonesianCaseStudy = {
 export const indonesianCaseStudies: IndonesianCaseStudy[] = [
   {
     path: '/id/studi-kasus/platform-enterprise-terintegrasi',
-    title: 'Studi Kasus: Platform Enterprise Custom | Kognifx',
+    title: 'Custom Enterprise Platform Development Case Study | Kognifx',
     h1: 'Platform Enterprise Terintegrasi untuk Operasional Bisnis yang Kompleks',
     description:
-      'Kognifx membangun platform enterprise custom yang menghubungkan CRM, commerce, event, finance, dan automation dalam satu sistem untuk operasional harian.',
+      'Studi kasus custom enterprise platform development oleh Kognifx: CRM integration, commerce, event, automation, dan operasional bisnis dalam satu sistem.',
     shortDescription:
-      'Bagaimana Kognifx merancang platform enterprise custom yang menghubungkan CRM, commerce, event, finance, dan automation.',
+      'Bagaimana Kognifx membangun platform enterprise custom yang menghubungkan CRM, commerce, event, finance, dan automation.',
     industry: 'Organisasi leadership profesional',
   },
 ];

@@ -125,6 +125,13 @@ export function IndonesianHomepageContent() {
             >
               Tentang
             </Link>
+            , lihat{' '}
+            <Link
+              href='/id/studi-kasus'
+              className='text-foreground underline underline-offset-4 decoration-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+            >
+              studi kasus pengembangan platform digital
+            </Link>
             , atau{' '}
             <WhatsAppConsultationLink
               locale='id'

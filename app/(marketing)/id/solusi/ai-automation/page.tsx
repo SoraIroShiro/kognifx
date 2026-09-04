@@ -183,6 +183,12 @@ export default function AiAutomationPage() {
         ]}
         relatedInsights={[
           {
+            label: 'Studi Kasus Pengembangan Platform Digital',
+            href: '/id/studi-kasus',
+            description:
+              'Lihat bagaimana automation dan AI dipakai dalam platform enterprise custom yang terhubung ke operasional.',
+          },
+          {
             label: 'Apa Itu AI Automation?',
             href: '/id/insight/apa-itu-ai-automation',
             description:
@@ -199,12 +205,6 @@ export default function AiAutomationPage() {
             href: '/id/insight/apa-itu-n8n-untuk-bisnis',
             description:
               'Pengantar n8n sebagai tool orkestrasi workflow, bukan halaman jasa n8n.',
-          },
-          {
-            label: 'Mengatasi Proses Approval Manual dengan Workflow Digital',
-            href: '/id/insight/mengatasi-proses-approval-manual',
-            description:
-              'Bottleneck approval, routing, audit trail, dan kapan otomasi sederhana sudah cukup.',
           },
           {
             label: 'Cara Mengotomatisasi Proses Bisnis yang Berulang',
