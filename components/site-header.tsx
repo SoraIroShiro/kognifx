@@ -1,6 +1,5 @@
 'use client';
 
-import { SplineHeaderTrigger } from '@/components/landing/spline-header-trigger';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler';
 import {
@@ -62,7 +61,6 @@ export function SiteHeader() {
         </nav>
 
         <div className='flex items-center gap-2 sm:gap-3'>
-          <SplineHeaderTrigger />
           <LanguageSwitcher />
           <AnimatedThemeToggler />
           <button

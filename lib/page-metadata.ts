@@ -17,6 +17,13 @@ type CreateUnpairedIndonesianMetadataInput = {
   path: string;
   title: string;
   description: string;
+  /** Optional Open Graph / Twitter image path (absolute site path). */
+  image?: {
+    url: string;
+    width?: number;
+    height?: number;
+    alt?: string;
+  };
 };
 
 export function createMarketingMetadata({
@@ -81,8 +88,15 @@ export function createUnpairedIndonesianMetadata({
   path,
   title,
   description,
+  image,
 }: CreateUnpairedIndonesianMetadataInput): Metadata {
   const canonical = absoluteUrl(path);
+  const ogImage = {
+    url: image?.url ?? '/showgoogle.png',
+    width: image?.width ?? 3310,
+    height: image?.height ?? 1908,
+    alt: image?.alt ?? 'Kognifx brand preview',
+  };
 
   return {
     title: {
@@ -99,20 +113,13 @@ export function createUnpairedIndonesianMetadata({
       description,
       siteName: seoDefaults.siteName,
       locale: 'id_ID',
-      images: [
-        {
-          url: '/showgoogle.png',
-          width: 3310,
-          height: 1908,
-          alt: 'Kognifx brand preview',
-        },
-      ],
+      images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: ['/showgoogle.png'],
+      images: [ogImage.url],
     },
   };
 }

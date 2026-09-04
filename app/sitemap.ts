@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { languageRoutePairs } from '@/lib/language-routes';
 import { indonesianSolutionDetailPaths } from '@/lib/indonesian-solution-routes';
+import { indonesianCaseStudyPaths } from '@/lib/indonesian-case-study-routes';
 import { indonesianInsightPaths } from '@/lib/indonesian-insight-routes';
 import { absoluteUrl } from '@/lib/absolute-url';
 
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...pairedPaths,
     ...indonesianSolutionDetailPaths,
     ...indonesianInsightPaths,
+    ...indonesianCaseStudyPaths,
   ];
 
   return paths.map((path) => ({

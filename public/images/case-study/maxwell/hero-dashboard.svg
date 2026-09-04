@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <rect width="1600" height="900" fill="#0f1115"/>
+  <rect x="48" y="48" width="1504" height="72" rx="16" fill="#1a1f29" stroke="#2a3140"/>
+  <rect x="48" y="152" width="360" height="700" rx="16" fill="#1a1f29" stroke="#2a3140"/>
+  <rect x="440" y="152" width="1112" height="220" rx="16" fill="#1a1f29" stroke="#2a3140"/>
+  <rect x="440" y="400" width="540" height="452" rx="16" fill="#1a1f29" stroke="#2a3140"/>
+  <rect x="1012" y="400" width="540" height="452" rx="16" fill="#1a1f29" stroke="#2a3140"/>
+  <rect x="80" y="80" width="120" height="16" rx="8" fill="#ff825c" opacity="0.8"/>
+  <rect x="472" y="184" width="200" height="16" rx="8" fill="#76e1ff" opacity="0.7"/>
+  <text x="800" y="470" text-anchor="middle" fill="#8b95a8" font-family="system-ui, sans-serif" font-size="28">Enterprise Platform Dashboard</text>
+</svg>
