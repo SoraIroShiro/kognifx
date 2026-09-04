@@ -13,9 +13,9 @@ import { createUnpairedIndonesianMetadata } from '@/lib/page-metadata';
 import { getUnpairedWebPageStructuredData } from '@/lib/structured-data';
 import Link from 'next/link';
 
-const title = 'Enterprise Platform Case Studies | Kognifx';
+const title = 'Studi Kasus Platform Enterprise | Kognifx';
 const description =
-  'See how Kognifx builds custom enterprise platforms that connect business operations, customer lifecycle, automation, and intelligence.';
+  'Lihat bagaimana Kognifx membangun platform enterprise custom yang menghubungkan operasional bisnis, CRM, automation, dan workflow dalam satu sistem.';
 
 export const metadata = createUnpairedIndonesianMetadata({
   path: indonesianCaseStudyHubPath,
@@ -38,9 +38,10 @@ export default function StudiKasusPage() {
         })}
       />
 
-      <MarketingPageHero eyebrow='Case Studies' title='Real Projects, Real Complexity'>
-        Kognifx documents how we help organizations turn fragmented operations
-        into custom enterprise platforms — from architecture through delivery.
+      <MarketingPageHero eyebrow='Studi Kasus' title='Proyek Nyata, Masalah Nyata'>
+        Kognifx mendokumentasikan cara kami membantu organisasi mengubah
+        operasional yang terfragmentasi menjadi platform enterprise custom,
+        dari arsitektur sampai delivery.
       </MarketingPageHero>
 
       <MarketingInsightGrid>
@@ -52,7 +53,7 @@ export default function StudiKasusPage() {
             <p>{study.shortDescription}</p>
             <p className='pt-1'>
               <Link href={study.path} className={inlineLinkClass}>
-                Read case study
+                Baca studi kasus
               </Link>
             </p>
           </MarketingInsightCard>

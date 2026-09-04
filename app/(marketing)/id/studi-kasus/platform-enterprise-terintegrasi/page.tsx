@@ -36,7 +36,7 @@ export const metadata = createUnpairedIndonesianMetadata({
     url: IMAGE.architecture,
     width: 1600,
     height: 1000,
-    alt: 'Enterprise platform architecture visualization by Kognifx',
+    alt: 'Visualisasi arsitektur platform enterprise yang dibangun Kognifx',
   },
 });
 
@@ -45,61 +45,61 @@ const inlineLinkClass =
 
 const overviewItems = [
   {
-    label: 'Industry',
-    value: 'Professional Leadership Organization Ecosystem',
+    label: 'Industri',
+    value: 'Organisasi leadership profesional',
   },
   {
-    label: 'Project Type',
-    value: 'Custom Enterprise Platform Development',
+    label: 'Jenis Proyek',
+    value: 'Platform enterprise custom',
   },
   {
     label: 'Timeline',
-    value: 'March 2026 – July 2026',
+    value: 'Maret 2026 – Juli 2026',
   },
   {
-    label: 'Validation',
-    value: '120+ early beta members',
+    label: 'Validasi',
+    value: '120+ early beta users',
   },
 ];
 
 const challengeItems = [
   {
-    title: 'Fragmented operational workflows',
+    title: 'Workflow operasional terfragmentasi',
     description:
-      'Customer relationships, transactions, events, and internal processes lived in separate tools with little shared context.',
+      'CRM, pembayaran, event, dan pekerjaan admin tersebar di tools yang berbeda. Tim tidak punya satu sumber data yang sama.',
   },
   {
-    title: 'Growing customer ecosystem',
+    title: 'Basis pelanggan yang terus tumbuh',
     description:
-      'As the customer base expanded, teams needed a clearer way to manage lifecycle stages across acquisition, engagement, and retention.',
+      'Seiring jumlah pelanggan bertambah, semakin sulit melacak aktivitas, transaksi, dan engagement.',
   },
   {
-    title: 'Limited centralized visibility',
+    title: 'Visibilitas operasional terbatas',
     description:
-      'Leaders and operators lacked a single view of business activity across CRM, commerce, events, and finance.',
+      'Manajer tidak bisa melihat aktivitas CRM, commerce, event, dan finance dalam satu tempat.',
   },
   {
-    title: 'Manual repetitive processes',
+    title: 'Proses manual yang berulang',
     description:
-      'Routine work relied on handoffs and spreadsheet-style coordination instead of structured automation.',
+      'Pekerjaan rutin masih berjalan lewat chat, serah terima, dan spreadsheet, bukan workflow yang terdefinisi.',
   },
 ];
 
 const approachItems = [
   {
-    title: 'Business Process Understanding',
+    title: 'Memahami proses bisnis',
     description:
-      'Analyze workflows and operational requirements before defining the system shape.',
+      'Kami memetakan workflow dan kebutuhan operasional sebelum menetapkan desain sistem.',
   },
   {
-    title: 'Custom Platform Engineering',
+    title: 'Rekayasa platform custom',
     description:
-      'Build solutions aligned with how the business actually works — not forced into a generic template.',
+      'Kami membangun di sekitar cara bisnis sudah berjalan, bukan memaksa template produk generik.',
   },
   {
-    title: 'Integrated Enterprise Architecture',
+    title: 'Arsitektur enterprise terintegrasi',
     description:
-      'Connect multiple business capabilities into one scalable platform foundation.',
+      'Kami menghubungkan modul bisnis utama dalam satu platform dengan data model dan API yang dipakai bersama.',
   },
 ];
 
@@ -107,52 +107,56 @@ const capabilityItems = [
   {
     title: 'CRM & Customer Lifecycle Management',
     description:
-      'Manage customer relationships, profiles, and lifecycle activities through a centralized platform.',
+      'Profil pelanggan, riwayat, dan status dikelola di satu lapisan CRM yang dipakai modul lain di platform.',
   },
   {
     title: 'Commerce & Transaction Management',
     description:
-      'Support business transactions and operational processes through integrated commerce workflows.',
+      'Pesanan dan pembayaran berjalan lewat workflow commerce yang terhubung ke data pelanggan dan finance.',
   },
   {
     title: 'Event Management',
     description:
-      'Manage registration, access, participation, and operational event activities.',
+      'Menangani registrasi event, kontrol akses, dan pencatatan kehadiran dalam sistem yang sama dengan data membership.',
   },
   {
     title: 'Content Management',
     description:
-      'Deliver structured digital content and communication experiences.',
+      'Konten dan komunikasi dipublikasikan tanpa CMS terpisah yang tidak saling terhubung.',
   },
   {
-    title: 'Automation & AI Capabilities',
+    title: 'Automation & AI',
     description:
-      'Automate workflows and generate intelligent operational insights where automation adds real value.',
+      'Mengotomasi workflow yang berulang. AI dipakai jika mengurangi review manual atau mempercepat keputusan.',
   },
 ];
 
 const impactItems = [
   {
-    title: 'Centralized Operations',
-    description: 'Connected business information across workflows.',
+    title: 'Operasional lebih terpusat',
+    description:
+      'Data inti dan workflow berada di satu sistem, bukan tersebar di banyak tools.',
   },
   {
-    title: 'Operational Visibility',
-    description: 'Improved understanding of business activities.',
+    title: 'Visibilitas operasional',
+    description:
+      'Tim bisa melihat aktivitas pelanggan, event, dan transaksi tanpa harus ekspor ke spreadsheet.',
   },
   {
-    title: 'Structured Processes',
-    description: 'More consistent and scalable workflows.',
+    title: 'Proses lebih terstruktur',
+    description:
+      'Approval dan serah terima mengikuti workflow yang jelas, bukan chat ad-hoc.',
   },
   {
-    title: 'Future-ready Platform',
-    description: 'Flexible foundation for future expansion.',
+    title: 'Mudah dikembangkan lebih lanjut',
+    description:
+      'Modul baru bisa ditambahkan di platform yang sama tanpa membangun ulang inti sistem.',
   },
 ];
 
 const timelineSteps = [
   {
-    title: 'March 2026',
+    title: 'Maret 2026',
     description: 'Business Discovery',
   },
   {
@@ -160,12 +164,12 @@ const timelineSteps = [
     description: 'System Architecture & Design',
   },
   {
-    title: 'May – June 2026',
+    title: 'Mei – Juni 2026',
     description: 'Platform Development',
   },
   {
-    title: 'July 2026',
-    description: 'Beta Testing & Validation — 120+ early members',
+    title: 'Juli 2026',
+    description: 'Beta testing dengan 120+ early users',
   },
 ];
 
@@ -180,23 +184,23 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
         })}
       />
 
-      <CaseStudyBreadcrumb current='Enterprise Platform' />
+      <CaseStudyBreadcrumb current='Platform Enterprise' />
 
       <MarketingPageHero
-        eyebrow='Case Study · Enterprise Platform'
+        eyebrow='Studi Kasus · Enterprise Platform'
         title={study.h1}
       >
-        Kognifx designed and developed a scalable digital ecosystem that
-        connects customer lifecycle management, business operations, automation,
-        and intelligence into one unified platform.
+        Kognifx merancang dan membangun platform custom yang menghubungkan CRM,
+        operasional bisnis, commerce, event, dan automation dalam satu sistem,
+        sehingga tim dapat bekerja tanpa berpindah antar tools yang terpisah.
       </MarketingPageHero>
 
       <div className='mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap'>
         <WhatsAppConsultationLink
-          locale='en'
+          locale='id'
           className={cn(buttonVariants({ size: 'lg' }), 'rounded-full px-6')}
         >
-          Discuss Your Enterprise Project
+          Diskusikan proyek serupa
         </WhatsAppConsultationLink>
         <Link
           href='/id/solusi'
@@ -205,22 +209,22 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
             'rounded-full px-6'
           )}
         >
-          Explore Our Solutions
+          Lihat solusi kami
         </Link>
       </div>
 
       <CaseStudyVisual
         className='mt-12'
         src={IMAGE.architecture}
-        alt='Enterprise architecture visualization for an integrated custom platform'
-        caption='Enterprise architecture — connecting operational domains into one platform foundation.'
+        alt='Visualisasi arsitektur platform enterprise custom yang terintegrasi'
+        caption='Ringkasan arsitektur: bagaimana domain operasional utama terhubung dalam satu platform.'
         priority
         objectFit='contain'
       />
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Project Overview
+          Ringkasan Proyek
         </h2>
         <dl className='mt-6 grid gap-4 sm:grid-cols-2'>
           {overviewItems.map((item) => (
@@ -241,12 +245,12 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Managing Complex Operations Across Multiple Business Processes
+          Ketika proses inti berjalan di tools yang terpisah
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Organizations with growing ecosystems often face challenges when
-          customer relationships, transactions, events, and operational
-          workflows are managed through disconnected processes.
+          Seiring organisasi tumbuh, data pelanggan, transaksi, event, dan
+          workflow internal tersebar di tempat yang berbeda. Tim lebih banyak
+          menyelaraskan sistem daripada menjalankan operasional.
         </p>
         <MarketingInsightGrid>
           {challengeItems.map((item) => (
@@ -259,12 +263,11 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Transforming Business Complexity Into an Integrated Platform
+          Pendekatan kami dalam membangun sistem
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Kognifx approaches enterprise work from the business problem first —
-          clarifying workflows, designing architecture, then building a platform
-          teams can actually operate.
+          Kami mulai dari model operasional: petakan workflow, rancang
+          arsitektur, lalu bangun platform yang bisa dipakai tim setiap hari.
         </p>
         <MarketingInsightGrid>
           {approachItems.map((item) => (
@@ -277,64 +280,62 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          End-to-End Business Journey
+          Perjalanan pelanggan dan operasional
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          The platform supports the complete lifecycle from customer
-          acquisition, engagement, transaction, experience, growth, and
-          intelligent automation.
+          Platform mencakup alur dari kontak pertama sampai engagement
+          berkelanjutan: registrasi, transaksi, event, konten, dan follow-up
+          otomatis bila memang membantu.
         </p>
         <CaseStudyVisual
           className='mt-8'
           src={IMAGE.journey}
-          alt='End-to-end business journey visualization across customer lifecycle stages'
-          caption='Business journey — from acquisition and engagement through transactions, experience, and automation.'
+          alt='Visualisasi perjalanan pelanggan dan operasional di platform'
+          caption='Peta journey: akuisisi, engagement, transaksi, event, dan titik automation.'
           objectFit='contain'
         />
       </section>
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          A Unified Enterprise Platform Architecture
+          Arsitektur platform
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Multiple business capabilities are connected through one scalable
-          platform architecture, enabling structured workflows and operational
-          visibility.
+          CRM, commerce, event, finance, dan tools internal berada di satu
+          arsitektur, sehingga workflow dan reporting memakai sistem yang sama.
         </p>
         <CaseStudyVisual
           className='mt-8'
           src={IMAGE.architecture}
-          alt='Unified enterprise platform architecture connecting CRM, commerce, events, and operations'
-          caption='Platform architecture — one foundation for multiple connected business capabilities.'
+          alt='Arsitektur platform yang menghubungkan CRM, commerce, event, dan operasional'
+          caption='Arsitektur tingkat tinggi dari modul-modul yang saling terhubung.'
           objectFit='contain'
         />
       </section>
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          A Centralized Platform for Daily Operations
+          Yang dipakai tim setiap hari
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          The platform provides operational teams with centralized capabilities
-          across CRM, commerce, event management, finance, automation, and
-          intelligence.
+          Tim operasional bekerja dari satu sistem untuk CRM, commerce, event,
+          finance, dan automation, tanpa harus berpindah tools sepanjang hari.
         </p>
         <CaseStudyVisual
           className='mt-8'
           src={IMAGE.platform}
-          alt='Enterprise platform interface for centralized daily business operations'
-          caption='Platform experience — a centralized workspace for day-to-day operational work.'
+          alt='Antarmuka platform enterprise untuk operasional harian'
+          caption='Antarmuka operasional utama yang dipakai tim internal.'
         />
       </section>
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Key Platform Capabilities
+          Kapabilitas utama platform
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Capabilities were shaped around real operational domains — not as
-          isolated apps, but as connected parts of one enterprise platform.
+          Setiap modul mengikuti domain operasional yang nyata. Semua berada di
+          satu platform agar data dan workflow tetap terhubung.
         </p>
         <div className='mt-10 space-y-10'>
           {capabilityItems.map((item) => (
@@ -352,23 +353,23 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Technology Foundation
+          Fondasi teknologi
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          The stack supports a scalable API-driven platform. Technology choices
-          serve the architecture — they are not the primary selling point.
+          Kami memakai stack yang sederhana untuk platform berbasis API. Fokusnya
+          adalah delivery yang andal dan arsitektur yang mudah dirawat.
         </p>
         <dl className='mt-6 grid gap-4 sm:grid-cols-2'>
           {[
             { label: 'Frontend', value: 'React' },
             { label: 'Backend', value: 'NestJS' },
             {
-              label: 'Architecture',
-              value: 'Scalable API-driven Platform',
+              label: 'Arsitektur',
+              value: 'Platform berbasis API',
             },
             {
-              label: 'Intelligence',
-              value: 'AI-powered Automation',
+              label: 'Automation',
+              value: 'Workflow automation + AI selektif',
             },
           ].map((item) => (
             <div
@@ -390,28 +391,28 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
             'NestJS',
             'API-driven Architecture',
             'Workflow Automation',
-            'AI Capabilities',
+            'Selective AI',
           ]}
         />
       </section>
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Project Timeline
+          Timeline proyek
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          From discovery to beta validation across a five-month delivery cycle.
+          Lima bulan dari discovery sampai beta bersama early users.
         </p>
         <MarketingProcessTimeline steps={timelineSteps} />
       </section>
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Business Impact
+          Dampak bagi bisnis
         </h2>
         <p className='mt-5 max-w-3xl leading-relaxed text-muted-foreground'>
-          Impact is described in operational terms. No unsupported percentage
-          claims — the focus is on how the platform changes day-to-day work.
+          Klaim dampak kami sampaikan secara kualitatif. Yang penting adalah
+          perubahan cara kerja setelah go-live, bukan metrik yang dibuat-buat.
         </p>
         <MarketingInsightGrid>
           {impactItems.map((item) => (
@@ -424,71 +425,71 @@ export default function PlatformEnterpriseTerintegrasiCaseStudyPage() {
 
       <section className='mt-16'>
         <h2 className='text-2xl font-medium leading-snug tracking-tight sm:text-3xl'>
-          Related Solutions
+          Solusi terkait
         </h2>
         <MarketingInsightGrid>
           <MarketingInsightCard title='Software Custom'>
             <p>
-              Custom platforms shaped around business processes — not generic
-              product templates.
+              Platform custom yang dibangun sesuai cara bisnis berjalan, bukan
+              mengikuti template produk generik.
             </p>
             <p className='pt-1'>
               <Link href='/id/solusi/software-custom' className={inlineLinkClass}>
-                Explore Software Custom
+                Pelajari Software Custom
               </Link>
             </p>
           </MarketingInsightCard>
           <MarketingInsightCard title='Integrasi Sistem'>
             <p>
-              Connect modules and existing tools so operations share one
-              coherent workflow.
+              Menghubungkan modul dan tools yang sudah ada agar operasional
+              berjalan dalam satu alur yang koheren.
             </p>
             <p className='pt-1'>
               <Link
                 href='/id/solusi/integrasi-sistem'
                 className={inlineLinkClass}
               >
-                Explore Systems Integration
+                Pelajari Integrasi Sistem
               </Link>
             </p>
           </MarketingInsightCard>
           <MarketingInsightCard title='AI & Automation'>
             <p>
-              Add automation and AI where they reduce manual work and improve
-              operational decisions.
+              Menambahkan automation dan AI jika membantu mengurangi kerja
+              manual dan memperjelas keputusan operasional.
             </p>
             <p className='pt-1'>
               <Link href='/id/solusi/ai-automation' className={inlineLinkClass}>
-                Explore AI & Automation
+                Pelajari AI & Automation
               </Link>
             </p>
           </MarketingInsightCard>
         </MarketingInsightGrid>
         <p className='mt-6 text-sm text-muted-foreground'>
-          Back to{' '}
+          Kembali ke{' '}
           <Link href='/id/studi-kasus' className={inlineLinkClass}>
-            Case Studies
+            Studi Kasus
           </Link>
           .
         </p>
       </section>
 
       <MarketingCtaPanel
-        title='Have Complex Business Processes That Need a Digital Solution?'
+        title='Operasional kompleks masih jalan di tools yang terpisah?'
         action={
           <WhatsAppConsultationLink
-            locale='en'
+            locale='id'
             className={cn(
               buttonVariants({ size: 'lg' }),
               'inline-flex rounded-full'
             )}
           >
-            Start Your Enterprise Project
+            Diskusikan kebutuhan proyek Anda
           </WhatsAppConsultationLink>
         }
       >
-        Kognifx helps organizations transform operational complexity into
-        scalable enterprise platforms.
+        Kognifx membangun platform enterprise custom ketika software siap pakai
+        tidak cukup untuk cara operasional bisnis Anda berjalan.
       </MarketingCtaPanel>
     </MarketingPageShell>
   );
