@@ -1,5 +1,5 @@
 export const languageRoutePairs = [
-  { en: '/', id: '/id' },
+  { en: '/en', id: '/id' },
   { en: '/about', id: '/id/tentang' },
   { en: '/solutions', id: '/id/solusi' },
   { en: '/contact', id: '/id/kontak' },

@@ -7,12 +7,12 @@ import { createMarketingMetadata } from '@/lib/page-metadata';
 import { seoDefaults } from '@/lib/seo';
 
 export const metadata = createMarketingMetadata({
-  path: '/',
+  path: '/en',
   title: seoDefaults.title,
   description: seoDefaults.description,
 });
 
-export default async function Page() {
+export default async function EnglishHomePage() {
   return (
     <>
       <HomepageJsonLd />

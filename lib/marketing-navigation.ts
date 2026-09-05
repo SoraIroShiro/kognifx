@@ -24,7 +24,7 @@ export function getNavItemsForLocale(locale: Locale): MarketingNavItem[] {
 }
 
 export function getHomeHrefForLocale(locale: Locale): string {
-  return locale === 'id' ? '/id' : '/';
+  return locale === 'id' ? '/id' : '/en';
 }
 
 export function getLocaleFromPathname(pathname: string): Locale {

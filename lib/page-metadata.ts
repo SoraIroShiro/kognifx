@@ -52,7 +52,7 @@ export function createMarketingMetadata({
       languages: {
         en: englishUrl,
         'id-ID': indonesianUrl,
-        'x-default': englishUrl,
+        'x-default': indonesianUrl,
       },
     },
     openGraph: {
